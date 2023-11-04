@@ -1,8 +1,19 @@
-# React + Vite
+# DESTIMATE FRONTEND - LANDING PAGE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🗄️ Project Structure
 
-Currently, two official plugins are available:
+Most of the code lives in the `src` folder and looks like this:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```sh
+src
+|
++-- assets            # assets folder can contain all the static files such as images, etc.
+|
++-- components        # shared components used across the entire application
+|
++-- pages             # pages based modules
+|
++-- providers         # all of the application providers
+|
++-- routes            # routes configuration
+```
