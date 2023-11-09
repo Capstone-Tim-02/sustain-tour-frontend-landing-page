@@ -1,17 +1,35 @@
-import { Spinner } from '@/components/Elements';
+import { Footer } from '@/components/Footer';
 import { MainLayout } from '@/components/Layouts';
+import { Navbar } from '@/components/Navbar';
+import { ScrollToTop } from '@/components/ScrollToTop';
+
+import { AboutUs, AdvantageDestimate } from './AboutUs';
+import { Contact } from './Contact';
+import { DestinationPopuler, Hero, TravelDreams } from './Home';
 
 export const LandingPage = () => {
   return (
-    <MainLayout title="Destimate">
-      <div className="flex flex-col items-center justify-center text-2xl">
-        <h1 className="font-heading">Landing Page</h1>
-        <p className="text-primary-60 text-lg">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam assumenda blanditiis
-          natus placeat iusto ad?
-        </p>
-        <Spinner />
-      </div>
-    </MainLayout>
+    <>
+      <MainLayout title="Destimate">
+        <div className="h-[1400px]">
+          <Navbar />
+          {/* Home */}
+          <Hero />
+          <DestinationPopuler />
+          <TravelDreams />
+
+          {/* About Us */}
+          <AboutUs />
+          <AdvantageDestimate />
+
+          {/* Contact */}
+          <Contact />
+
+          {/* Footer */}
+          <Footer />
+        </div>
+      </MainLayout>
+      <ScrollToTop />
+    </>
   );
 };
