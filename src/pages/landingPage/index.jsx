@@ -11,23 +11,21 @@ export const LandingPage = () => {
   return (
     <>
       <MainLayout title="Destimate">
-        <div className="h-[1400px]">
-          <Navbar />
-          {/* Home */}
-          <Hero />
-          <DestinationPopuler />
-          <TravelDreams />
+        <Navbar />
+        {/* Home */}
+        <Hero />
+        <DestinationPopuler />
+        <TravelDreams />
 
-          {/* About Us */}
-          <AboutUs />
-          <AdvantageDestimate />
+        {/* About Us */}
+        <AboutUs />
+        <AdvantageDestimate />
 
-          {/* Contact */}
-          <Contact />
+        {/* Contact */}
+        <Contact />
 
-          {/* Footer */}
-          <Footer />
-        </div>
+        {/* Footer */}
+        <Footer />
       </MainLayout>
       <ScrollToTop />
     </>
