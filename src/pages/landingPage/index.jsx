@@ -5,7 +5,7 @@ import { ScrollToTop } from '@/components/ScrollToTop';
 
 import { AboutUs, AdvantageDestimate } from './AboutUs';
 import { Contact } from './Contact';
-import { DestinationPopuler, Hero, TravelDreams } from './Home';
+import { CarbonEmision, DestinationPopuler, Hero, TravelDreams } from './Home';
 
 export const LandingPage = () => {
   return (
@@ -14,6 +14,7 @@ export const LandingPage = () => {
         <Navbar />
         {/* Home */}
         <Hero />
+        <CarbonEmision/>
         <DestinationPopuler />
         <TravelDreams />
 
