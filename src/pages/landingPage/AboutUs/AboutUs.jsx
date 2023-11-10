@@ -1,8 +1,8 @@
-import imageAboutUs from '@/assets/image-about-us.jpg';
+import imageAboutUs from '@/assets/images/about-us-image.jpg';
 
 export const AboutUs = () => {
   return (
-    <section id="about-us">
+    <section id="tentang-kami">
       <div className="mx-auto flex w-full flex-col gap-5 text-center md:gap-10">
         <h1 className="font-sans text-xl font-bold text-primary-100 sm:text-2xl lg:text-3xl">
           Tentang Kami
