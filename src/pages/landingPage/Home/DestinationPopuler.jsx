@@ -35,7 +35,7 @@ export const DestinationPopuler = () => {
           Temukan keajaiban dunia di destinasi paling dicari. Mulai petualanganmu sekarang dan raih kenangan abadi!
         </h2>
 
-        <div className='flex flex-col justify-center items-center space-y-4 md:flex-row md:space-x-4 md:space-y-0'>
+        <div className='flex flex-col justify-center self-center space-y-4 md:flex-row md:space-x-4 md:space-y-0'>
           {contents.map((content) => (
             <CardDestinasi
               key={content.destination}
