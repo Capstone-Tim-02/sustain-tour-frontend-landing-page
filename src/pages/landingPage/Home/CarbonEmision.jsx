@@ -1,9 +1,9 @@
-import ImageCarbonEmision from '@/assets/images/image-carbon-emision.jpg';
+import ImageCarbonEmision from '@/assets/images/carbon-emission-image.jpg';
 
 export const CarbonEmision = () => {
   return (
-    <section id="destination-populer">
-      <div className="flex flex-col gap-5 my-14 md:flex-row md:gap-10 justify-center items-center">
+    <section id="carbon-emission">
+      <div className="my-14 flex flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
         <div className="h-auto max-w-[500px] ">
           <img className="rounded-lg" src={ImageCarbonEmision} alt="" />
         </div>
