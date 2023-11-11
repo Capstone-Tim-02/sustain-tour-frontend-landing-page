@@ -29,7 +29,7 @@ const cardData = [
 
 export const AdvantageDestimate = () => {
   return (
-    <section id="advantage-destimate" className="pt-8 lg:pb-[45rem]">
+    <section id="advantage-destimate" className="py-14 lg:pb-[45rem]">
       <div className="right-0 flex flex-col lg:absolute lg:w-screen">
         <div
           className="flex h-96 w-full rounded-lg bg-cover bg-center bg-no-repeat text-center max-lg:items-center lg:h-[600px] lg:rounded-none"
