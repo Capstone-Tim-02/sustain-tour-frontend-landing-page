@@ -7,9 +7,9 @@ export const Footer = () => {
         <div className="w-8">
           <img src={footerlogo} alt="destimate-logo"/>
         </div>
-        <div className="container mx-auto">
+        <div className="container w-full">
           <div className="flex flex-col sm:flex-row justify-between">
-            <div className="flex flex-col gap-2 text-white ml-5 lg:-ml-24 md:ml-5">
+            <div className="flex flex-col gap-2 text-white ml-5 md:ml-5">
               <div className='font-bold text-xl'>
                 <h1>Destimate</h1>
               </div>
@@ -19,7 +19,7 @@ export const Footer = () => {
                 <p>Kantor E2, Lantai 5, Khalifa Heights, Jalan Chaklala dekat dengan Committee Chowk, Rawalpindi</p>
               </div>
             </div>
-            <div className="flex flex-col gap-3 text-white text-sm ml-5 sm:mr-10 md:mr-5">
+            <div className="flex flex-col gap-3 text-white text-sm ml-10 sm:ml-auto md:mr-5">
               <p>Beranda</p>
               <p>Tentang Kami</p>
               <p>Kontak</p>
