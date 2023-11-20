@@ -1,4 +1,4 @@
-import { LocationIcon } from '@/components/Icons';
+import { LocationIcon } from '@/components/Icons/LocationIcon';
 
 export const CardDestinasi = ({image, destination, location, description }) => {
     return (
