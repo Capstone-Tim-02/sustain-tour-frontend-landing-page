@@ -1,49 +1,65 @@
+import { DownloadCloud, MapPin } from 'lucide-react';
+
+import {appstore,playstore } from '@/assets/images';
+import ImageHero from '@/assets/images/image-hero.png';
+import { IconLine, IconPepole } from '@/components/Icons';
+
 export const Hero = () => {
   return (
     <section id="hero">
-      <div
-        className="h-[300px] rounded-lg
-        bg-[url('@/assets/images/hero-image.png')] 
-        bg-cover 
-        text-white 
-        sm:h-[370px] md:h-[440px] lg:h-[570px]"
-      >
-        <div
-          className="ml-[10px] pt-[80px] 
-          sm:ml-[29px] sm:pt-[85px] 
-          md:ml-[34px] md:pt-[98px] 
-          lg:ml-[44px] lg:pt-[127px] "
-        >
-          <div
-            className="TittleHero text-[20px] font-bold leading-6 
-          sm:text-[29px] sm:leading-7 
-          md:text-[33px] md:leading-[38px] 
-          lg:text-[44px] lg:leading-[50px]"
-          >
-            <h1>JELAJAHI KECANTIKAN ALAMI</h1>
-            <h1>DAN KEHIDUPAN LIAR</h1>
+      <div className='mx-auto w-full flex flex-col'>
+        <div className="flex flex-col justify-between gap-5 md:gap-10 lg:flex-row lg:gap-20">
+          <div className='flex flex-col gap-[2em] w-full lg:max-w-[40%]'>
+            <h1 className='font-sans text-xl font-bold text-primary-100 sm:text-2xl lg:text-4xl text-center md:text-left'>
+              EKSPLORASI KECANTIKAN YANG MEMPESONA
+            </h1>
+            <p className='font-sans text-sm font-greyDestimate-100 text-center md:text-left'>
+              Temukan keindahan tersembunyi dan alami petualangan tanpa batas! Unduh Destimate sekarang dan jadilah bagian dari ekspedisi seru bersama tim ahli. Jangan lewatkan! 🌍✨
+            </p>
+            <div 
+              className="flex gap-6 justify-center lg:justify-start"
+            >
+              <img src={appstore} style={{maxWidth:'8em'}} onClick={() => {}}/>
+              <img src={playstore} style={{maxWidth:'8em'}}/>
+            </div>
           </div>
-          <div
-            className="DescriptionHero mt-[15px] text-[9px] leading-3 
-            sm:mt-[21px] sm:text-[12px] sm:leading-3
-            md:mt-[25px] md:text-[14px] md:leading-4
-            lg:mt-[32px] lg:text-[18px] lg:leading-5"
-          >
-            <p>Taklukkan keindahan alam tersembunyi dan rasakan sensasi petualangan</p>
-            <p>tak terlupakan bersama tim ahli kami! Jangan lewatkan kesempatan ini,</p>
-            <p>segera gabung dalam petualangan melalui aplikasi Destimate!</p>
+          <div  className='flex justify-self-center w-full lg:max-w-[40%] lg:justify-end'>
+            <img src={ImageHero}/>
           </div>
-          <button
-            className="mt-[20px] rounded-lg bg-[#2D68F8] px-6 py-2 text-[9px]  
-          sm:mt-[21px] sm:px-[33px] sm:py-[8px] sm:text-[12px]
-          md:mt-[25px] md:px-[38px] md:py-[9px] md:text-[14px]
-          lg:mt-[32px] lg:px-[50px] lg:py-[12px] lg:text-[18px]
-           "
-          >
-            Daftar Sekarang
-          </button>
+        </div>
+
+        <div className='flex justify-center gap-[2em] lg:gap-[4em] mt-2'>
+
+          <div className='flex flex-col justify-center text-center gap-2'>
+            <h1 className='font-sans text-md font-bold text-primary-100 lg:text-2xl'>+2k</h1>
+            <div className='flex flex-row gap-2 justify-center text-center'>
+              <DownloadCloud />
+              <p className='font-sans text-sm'>Pengguna</p>
+            </div>
+          </div>
+
+          <IconLine/>
+
+          <div className='flex flex-col justify-center text-center gap-2'>
+            <h1 className='font-sans text-md font-bold text-primary-100 lg:text-2xl'>+5k</h1>
+            <div className='flex flex-row gap-2 justify-center text-center'>
+              <IconPepole/>
+              <p className='font-sans text-sm '>Transaksi</p>
+            </div>
+          </div>
+
+          <IconLine/>
+
+          <div className='flex flex-col justify-center text-center gap-2'>
+            <h1 className='font-sans text-md font-bold text-primary-100 lg:text-2xl'>+100</h1>
+            <div className='flex flex-row gap-2 justify-center text-center'>
+              <MapPin />
+              <p className='font-sans text-sm '>Destinasi</p>
+            </div>
+          </div>
         </div>
       </div>
+
     </section>
-  );
-};
+  )
+}

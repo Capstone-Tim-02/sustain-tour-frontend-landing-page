@@ -12,7 +12,7 @@ import { CarbonEmision, DestinationPopuler, Hero, TravelDreams } from './Home';
 export const LandingPage = () => {
   const backgroundStyle = {
     backgroundImage: `url(${BackgroundComponent})`,
-    backgroundSize: '40%',
+    backgroundSize: '43%',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'top right',
   };
@@ -23,18 +23,18 @@ export const LandingPage = () => {
         <Navbar />
 
         <MainLayout title="Destimate">
-          {/* Home */}
-          <Hero />
-          <CarbonEmision/>
-          <DestinationPopuler />
-          <TravelDreams />
+            {/* Home */}
+            <Hero />
+            <CarbonEmision/>
+            {/* <DestinationPopuler /> */}
+            {/* <TravelDreams /> */}
 
-          {/* About Us */}
-          <AboutUs />
-          <AdvantageDestimate />
+            {/* About Us */}
+            {/* <AboutUs /> */}
+            <AdvantageDestimate />
 
-          {/* Contact */}
-          <Contact />
+            {/* Contact */}
+            <Contact />
         </MainLayout>
       </div>
 

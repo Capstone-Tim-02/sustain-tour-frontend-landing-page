@@ -61,10 +61,10 @@ export const Navbar = () => {
                     </Disclosure.Button>
                   </div>
 
+                  <img className="h-8 w-auto" src="/logo-3.png" alt="Destimate" />
                   <div className="flex flex-shrink-0 items-center">
-                    <img className="h-8 w-auto" src="/logo-3.png" alt="Destimate" />
                     <div className="hidden sm:ml-6 sm:block ">
-                      <div className="flex space-x-4 ">
+                      <div className="flex space-x-4 gap-6">
                         {navigation.map((item) => (
                           <a
                             key={item.name}
@@ -83,10 +83,6 @@ export const Navbar = () => {
                         ))}
                       </div>
                     </div>
-                  </div>
-
-                  <div className='hidden sm:ml-6 sm:block '>
-                    icon
                   </div>
                 </div>
               </div>
@@ -110,9 +106,6 @@ export const Navbar = () => {
                       {item.name}
                     </Disclosure.Button>
                   ))}
-                  <div className='px-3 pb-3 pt-2'>
-                    icon
-                  </div>
                 </div>
               </Disclosure.Panel>
             </>
