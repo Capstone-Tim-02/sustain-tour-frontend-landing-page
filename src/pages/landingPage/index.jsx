@@ -24,7 +24,7 @@ export const LandingPage = () => {
 
         <MainLayout title="Destimate">
           {/* Home */}
-          {/* <Hero /> */}
+          <Hero />
           <CarbonEmision/>
           <DestinationPopuler />
           <TravelDreams />
