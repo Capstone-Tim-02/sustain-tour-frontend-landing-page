@@ -26,11 +26,11 @@ export const LandingPage = () => {
             {/* Home */}
             <Hero />
             <CarbonEmision/>
-            {/* <DestinationPopuler /> */}
-            {/* <TravelDreams /> */}
+            <DestinationPopuler />
+            <TravelDreams />
 
             {/* About Us */}
-            {/* <AboutUs /> */}
+            <AboutUs />
             <AdvantageDestimate />
 
             {/* Contact */}
