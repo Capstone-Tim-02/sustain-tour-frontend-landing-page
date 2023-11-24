@@ -1,4 +1,4 @@
-import { useEffect,useState } from 'react';
+import { useState } from 'react';
 import { Disclosure } from '@headlessui/react';
 
 import burgerButton from '@/assets/images/burger-button.png';
@@ -14,8 +14,6 @@ export const Navbar = () => {
     { name: 'Kontak', href: '#', current: false, id: 'kontak' },
   ]);
 
-  const [isNavbarFixed, setIsNavbarFixed] = useState(false);
-
   const handleItemClick = (clickedItem) => {
     const updatedNavigation = navigation.map((item) => ({
       ...item,
@@ -25,21 +23,9 @@ export const Navbar = () => {
     setNavigation(updatedNavigation);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsNavbarFixed(scrollPosition > 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
-    <div className={`container px-6 max-w-none sticky top-0 z-40 ${isNavbarFixed ? 'bg-white shadow-md' : ''}`}>
+    <div className={`container px-6 max-w-none sticky top-0 z-40 bg-white shadow-md`}>
       <nav id="beranda">
         <Disclosure as="nav">
           {({ open }) => (
