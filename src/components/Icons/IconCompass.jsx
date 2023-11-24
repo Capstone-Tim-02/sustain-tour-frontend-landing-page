@@ -1,4 +1,4 @@
-export const CompassIcon = () => {
+export const IconCompass = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" height="70" viewBox="0 0 24 24">
       <path
