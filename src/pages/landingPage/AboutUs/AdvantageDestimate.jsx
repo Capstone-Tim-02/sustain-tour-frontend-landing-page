@@ -1,7 +1,8 @@
 import { Clock, PercentCircle } from 'lucide-react';
 
-// import { CompassIcon } from '@/components/icons';
 import Image from '../../../assets/images/advantage-destimate-image.png';
+// import { CompassIcon } from '@/components/icons';
+import { CompassIcon } from '../../../components/Icons';
 
 const cardData = [
   {
@@ -17,13 +18,13 @@ const cardData = [
     title: 'Diskon Eksklusif',
     description: 'Temukan diskon eksklusif & paket istimewa! Hemat biaya, nikmati liburan.',
   },
-  // {
-  //   id: 3,
-  //   icon: CompassIcon,
-  //   title: 'Fleksibilitas',
-  //   description:
-  //     'Dengan aplikasi tiket wisata, pilih destinasi dan atraksi sesuai preferensi Anda dengan mudah.',
-  // },
+  {
+    id: 3,
+    icon: CompassIcon,
+    title: 'Fleksibilitas',
+    description:
+      'Dengan aplikasi tiket wisata, pilih destinasi dan atraksi sesuai preferensi Anda dengan mudah.',
+  },
 ];
 
 export const AdvantageDestimate = () => {
