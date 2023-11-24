@@ -2,8 +2,7 @@ import { DownloadCloud, MapPin } from 'lucide-react';
 
 import {appstore,playstore } from '@/assets/images';
 import ImageHero from '@/assets/images/image-hero.png';
-
-import { IconLine,IconPepole } from '../../../components/Icons';
+import { IconLine, IconPepole } from '@/components/Icons';
 
 
 export const Hero = () => {
