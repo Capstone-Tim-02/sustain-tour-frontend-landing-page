@@ -20,24 +20,24 @@ export const LandingPage = () => {
 
   return (
     <>
-      <div style={backgroundStyle}>
-        <Navbar />
+        <div style={backgroundStyle} >
+          <Navbar />
 
-        <MainLayout title="Destimate">
-            {/* Home */}
-            <Hero />
-            <CarbonEmision/>
-            <DestinationPopuler />
-            <TravelDreams />
+          <MainLayout title="Destimate">
+              {/* Home */}
+              <Hero />
+              <CarbonEmision/>
+              <DestinationPopuler />
+              <TravelDreams />
 
-            {/* About Us */}
-            <AboutUs />
-            <AdvantageDestimate />
+              {/* About Us */}
+              <AboutUs />
+              <AdvantageDestimate />
 
-            {/* Contact */}
-            <Contact />
-        </MainLayout>
-      </div>
+              {/* Contact */}
+              <Contact />
+          </MainLayout>
+        </div>
 
       <DestinationGuide/>
       

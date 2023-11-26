@@ -1,4 +1,4 @@
-import { DownloadCloud, MapPin } from 'lucide-react';
+import { CircleDollarSign,DownloadCloud, MapPin } from 'lucide-react';
 
 import {appstore,playstore } from '@/assets/images';
 import ImageHero from '@/assets/images/image-hero.png';
@@ -18,7 +18,7 @@ export const Hero = () => {
               Temukan keindahan tersembunyi dan alami petualangan tanpa batas! Unduh Destimate sekarang dan jadilah bagian dari ekspedisi seru bersama tim ahli. Jangan lewatkan! 🌍✨
             </p>
             <div 
-              className="flex gap-6 justify-center lg:justify-start"
+              className="flex flex-col gap-6 justify-center items-center sm:flex-row sm:justify-start"
             >
               <img src={appstore} style={{maxWidth:'8em'}} onClick={() => {}}/>
               <img src={playstore} style={{maxWidth:'8em'}}/>
@@ -29,7 +29,7 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className='flex justify-center gap-[2em] lg:gap-[4em] mt-2'>
+        <div className='flex flex-col sm:flex-row justify-center gap-[2em] lg:gap-[4em] mt-2'>
 
           <div className='flex flex-col justify-center text-center gap-2'>
             <h1 className='font-sans text-md font-bold text-primary-100 lg:text-2xl'>+2k</h1>
@@ -39,17 +39,18 @@ export const Hero = () => {
             </div>
           </div>
 
-          <IconLine/>
+          <IconLine className='hidden sm:block'/>
 
           <div className='flex flex-col justify-center text-center gap-2'>
             <h1 className='font-sans text-md font-bold text-primary-100 lg:text-2xl'>+5k</h1>
             <div className='flex flex-row gap-2 justify-center text-center'>
-              <IconPepole/>
+              {/* <IconPepole/> */}
+              <CircleDollarSign/>
               <p className='font-sans text-sm '>Transaksi</p>
             </div>
           </div>
 
-          <IconLine/>
+          <IconLine className='hidden sm:block'/>
 
           <div className='flex flex-col justify-center text-center gap-2'>
             <h1 className='font-sans text-md font-bold text-primary-100 lg:text-2xl'>+100</h1>
