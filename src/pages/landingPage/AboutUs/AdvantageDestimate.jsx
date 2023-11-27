@@ -1,7 +1,6 @@
 import { Clock, PercentCircle } from 'lucide-react';
 
-import { CompassIcon } from '@/components/icons';
-
+import { CompassIcon } from '@/components/Icons';
 import Image from '../../../assets/images/advantage-destimate-image.png';
 
 const cardData = [
