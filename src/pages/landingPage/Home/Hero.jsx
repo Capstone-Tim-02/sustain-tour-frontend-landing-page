@@ -2,7 +2,7 @@ import { CircleDollarSign,DownloadCloud, MapPin } from 'lucide-react';
 
 import {appstore,playstore } from '@/assets/images';
 import ImageHero from '@/assets/images/image-hero.png';
-import { IconLine, IconPepole } from '@/components/Icons';
+import { IconLine } from '@/components/Icons';
 
 
 export const Hero = () => {
@@ -24,13 +24,12 @@ export const Hero = () => {
               <img src={playstore} style={{maxWidth:'8em'}}/>
             </div>
           </div>
-          <div  className='flex justify-self-center w-full lg:max-w-[40%] lg:justify-end'>
-            <img src={ImageHero}/>
+          <div  className='w-full mb-3 flex justify-center lg:max-w-[40%]'>
+            <img src={ImageHero} className='w-[50%] lg:w-full'/>
           </div>
         </div>
 
-        <div className='flex flex-col sm:flex-row justify-center gap-[2em] lg:gap-[4em] mt-2'>
-
+        <div className='flex flex-col mt-2 justify-center sm:flex-row gap-[2em] lg:gap-[4em]'>
           <div className='flex flex-col justify-center text-center gap-2'>
             <h1 className='font-sans text-md font-bold text-primary-100 lg:text-2xl'>+2k</h1>
             <div className='flex flex-row gap-2 justify-center text-center'>
@@ -44,7 +43,6 @@ export const Hero = () => {
           <div className='flex flex-col justify-center text-center gap-2'>
             <h1 className='font-sans text-md font-bold text-primary-100 lg:text-2xl'>+5k</h1>
             <div className='flex flex-row gap-2 justify-center text-center'>
-              {/* <IconPepole/> */}
               <CircleDollarSign/>
               <p className='font-sans text-sm '>Transaksi</p>
             </div>
