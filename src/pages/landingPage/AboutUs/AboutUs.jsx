@@ -1,9 +1,8 @@
-import React from 'react';
-import SpeakerIcon from '@/assets/images/AboutPage/speaker-icon.png';
 import FleksibilitasIcon from '@/assets/images/AboutPage/icon-1.png';
 import DiskonIcon from '@/assets/images/AboutPage/icon-2.png';
 import KemudahanIcon from '@/assets/images/AboutPage/icon-3.png';
 import DestpopIcon from '@/assets/images/AboutPage/icon-4.png';
+import SpeakerIcon from '@/assets/images/AboutPage/speaker-icon.png';
 
 const data = [
   {
@@ -61,7 +60,7 @@ const CardAbout = ({ icon, title, desc, bgColor }) => {
 
 export const AboutUs = () => {
   return (
-    <section id="tentang-kami">
+    <section id='tentang-kami'>
       <div className="md:-mx-18 -mx-5 mb-[240px] max-h-[600px] bg-primary-60 p-7 px-0 sm:mb-[220px] md:mb-[130px] md:max-h-[500px] xl:-mx-[67px]">
         <div className="mx-auto flex flex-col items-center gap-5 text-center">
           <div className="w-16 rounded-full bg-white p-3">
