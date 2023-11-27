@@ -1,33 +1,46 @@
+import BackgroundComponent from '@/assets/images/background-component.png';
 import { Footer } from '@/components/Footer';
 import { MainLayout } from '@/components/Layouts';
 import { Navbar } from '@/components/Navbar';
 import { ScrollToTop } from '@/components/ScrollToTop';
 
 import { DestinationGuide } from './Home/DestinationGuide';
-import { AboutUs, AdvantageDestimate } from './AboutUs';
+import { AboutUs } from './AboutUs';
+import { AdvantageDestimate } from './AboutUs';
 import { Contact } from './Contact';
 import { CarbonEmision, DestinationPopuler, Hero, TravelDreams } from './Home';
 
 export const LandingPage = () => {
+  const backgroundStyle = {
+    backgroundImage: `url(${BackgroundComponent})`,
+    backgroundSize: '43%',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'top right',
+  };
+
   return (
     <>
-      <MainLayout title="Destimate">
-        <Navbar />
-        {/* Home */}
-        <Hero />
-        <CarbonEmision/>
-        <DestinationPopuler />
-        <TravelDreams />
+        <div style={backgroundStyle} >
+          <Navbar />
 
-        {/* About Us */}
-        <AboutUs />
-        <AdvantageDestimate />
+          <MainLayout title="Destimate">
+              {/* Home */}
+              <Hero />
+              <CarbonEmision/>
+              <DestinationPopuler />
+              <TravelDreams />
 
-        {/* Contact */}
-        <Contact />
+              {/* About Us */}
+              <AboutUs />
+              <AdvantageDestimate />
 
-      </MainLayout>
+              {/* Contact */}
+              <Contact />
+          </MainLayout>
+        </div>
+
       <DestinationGuide/>
+      
       {/* Footer */}
       <Footer />
       <ScrollToTop />

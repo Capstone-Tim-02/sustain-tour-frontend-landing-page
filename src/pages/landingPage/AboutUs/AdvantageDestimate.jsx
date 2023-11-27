@@ -1,6 +1,6 @@
 import { Clock, PercentCircle } from 'lucide-react';
 
-import { CompassIcon } from '@/components/icons';
+import { IconCompass } from '@/components/Icons'; 
 
 import Image from '../../../assets/images/advantage-destimate-image.png';
 
@@ -20,7 +20,7 @@ const cardData = [
   },
   {
     id: 3,
-    icon: CompassIcon,
+    icon: IconCompass,
     title: 'Fleksibilitas',
     description:
       'Dengan aplikasi tiket wisata, pilih destinasi dan atraksi sesuai preferensi Anda dengan mudah.',

@@ -1,2 +1,4 @@
-export * from './CompassIcon';
-export * from './LocationIcon';
+export * from './IconCompass';
+export * from './IconLine';
+export * from './IconLocation';
+export * from './IconPeople';
