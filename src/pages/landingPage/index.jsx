@@ -4,9 +4,7 @@ import { MainLayout } from '@/components/Layouts';
 import { Navbar } from '@/components/Navbar';
 import { ScrollToTop } from '@/components/ScrollToTop';
 
-import { DestinationGuide } from './Home/DestinationGuide';
-import { AboutUs } from './AboutUs';
-import { AdvantageDestimate } from './AboutUs';
+import { AboutUs, RegisterNow } from './AboutUs';
 import { Contact } from './Contact';
 import { CarbonEmision, DestinationPopuler, Hero, TravelDreams } from './Home';
 
@@ -32,15 +30,13 @@ export const LandingPage = () => {
 
               {/* About Us */}
               <AboutUs />
-              <AdvantageDestimate />
+              <RegisterNow />
 
               {/* Contact */}
               <Contact />
           </MainLayout>
         </div>
-
-      <DestinationGuide/>
-      
+              
       {/* Footer */}
       <Footer />
       <ScrollToTop />

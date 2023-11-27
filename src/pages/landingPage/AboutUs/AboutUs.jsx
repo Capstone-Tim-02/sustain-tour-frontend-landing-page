@@ -1,51 +1,116 @@
-import imageAboutUs from '@/assets/images/about-us-image.jpg';
+import FleksibilitasIcon from '@/assets/images/AboutPage/icon-1.png';
+import DiskonIcon from '@/assets/images/AboutPage/icon-2.png';
+import KemudahanIcon from '@/assets/images/AboutPage/icon-3.png';
+import DestpopIcon from '@/assets/images/AboutPage/icon-4.png';
+import SpeakerIcon from '@/assets/images/AboutPage/speaker-icon.png';
+
+const data = [
+  {
+    icon: SpeakerIcon,
+    title: 'Tentang Kami',
+    description:
+      'Jelajahi dunia dengan Destimate dan rasakan sensasi petualangan tanpa batas. Kami siap menghadapi tantangan, apakah Anda siap?',
+  },
+  {
+    icon: FleksibilitasIcon,
+    bgColor: '#F1E8FF',
+    title: 'Fleksibilitas',
+    description:
+      'Dengan aplikasi tiket wisata, pilih destinasi dan atraksi sesuai preferensi Anda dengan mudah.',
+  },
+  {
+    icon: DiskonIcon,
+    title: 'Diskon Eksklusif',
+    bgColor: '#FFF2F2',
+    description:
+      'Temukan diskon eksklusif & paket istimewa! Hemat biaya, nikmati liburan Anda dengan gembira.',
+  },
+  {
+    icon: KemudahanIcon,
+    bgColor: '#E2F3FF',
+    title: 'Kemudahan',
+    description:
+      'Dengan aplikasi tiket wisata, pesan cepat tanpa antrian dan pastikan perencanaan Anda terjamin.',
+  },
+  {
+    icon: DestpopIcon,
+    bgColor: '#FFE7FB',
+    title: 'Destinasi Populer',
+    description:
+      'Temukan Pesona Tersembunyi Destinasi Populer dengan Panduan Ahli yang Menjanjikan Petualangan Unik Anda!',
+  },
+];
+
+const CardAbout = ({ icon, title, desc, bgColor }) => {
+  return (
+    <div className="flex max-w-[430px] border-b-2 pb-4 md:border-none md:pb-0">
+      <div
+        className="mx-6 mt-7 flex h-20 w-32 rounded-xl p-4 md:mt-2"
+        style={{ backgroundColor: bgColor }}
+      >
+        <img src={icon} alt="Icon" />
+      </div>
+      <div className="ml-2 mt-4 text-start md:mt-0">
+        <h1 className="text-xl font-medium">{title}</h1>
+        <p className="mt-3 text-sm md:mt-5">{desc}</p>
+      </div>
+    </div>
+  );
+};
 
 export const AboutUs = () => {
   return (
-    <section id="tentang-kami">
-      <div className="mx-auto flex w-full flex-col gap-5 text-center md:gap-10">
-        <h1 className="font-sans text-xl font-bold text-primary-100 sm:text-2xl lg:text-3xl">
-          Tentang Kami
-        </h1>
-        <div className="flex flex-col items-center justify-between gap-5 md:gap-10 lg:flex-row lg:gap-20 ">
-          <div className="max-h-auto max-w-[700px] rounded-2xl">
-            <img className="object-fill" src={imageAboutUs} alt="pantai-raja-ampat" />
+    <section id='tentang-kami'>
+      <div className="md:-mx-18 -mx-5 mb-[240px] max-h-[600px] bg-primary-60 p-7 px-0 sm:mb-[220px] md:mb-[130px] md:max-h-[500px] xl:-mx-[67px]">
+        <div className="mx-auto flex flex-col items-center gap-5 text-center">
+          <div className="w-16 rounded-full bg-white p-3">
+            <img src={data[0].icon} alt="Icon" />
           </div>
-          <div className="flex h-auto flex-col  justify-center gap-3 ">
-            <div className="">
-              <div className="mb-3 flex justify-start gap-5 font-sans text-lg font-bold text-black md:text-xl">
-                <h1 className="">01</h1>
-                <h1 className="">Berkelanjutan</h1>
-              </div>
-
-              <p className="text-left font-sans text-xs font-normal text-black md:text-sm">
-                Jelajahi dunia dengan hati yang berkelanjutan. Tiket wisata kami, langkah pertama
-                menuju perjalanan bertanggung jawab.
-              </p>
+          <h1 className="font-sans text-xl font-bold text-white sm:text-2xl lg:text-3xl">
+            {data[0].title}
+          </h1>
+          <h3 className="max-w-[500px] font-sans text-sm text-white sm:text-lg md:text-base">
+            {data[0].description}
+          </h3>
+          <div className="rounded-xl bg-white ">
+            <div className="gap-3 p-4 md:flex md:p-8">
+              {
+                <CardAbout
+                  icon={data[1].icon}
+                  title={data[1].title}
+                  desc={data[1].description}
+                  bgColor={data[1].bgColor}
+                />
+              }
+              <div className="w-0.5 md:h-48 xl:bg-gray-200"></div>
+              {
+                <CardAbout
+                  icon={data[2].icon}
+                  title={data[2].title}
+                  desc={data[2].description}
+                  bgColor={data[2].bgColor}
+                />
+              }
             </div>
-            <div className="">
-              <div className="mb-3 flex justify-start gap-5 font-sans text-lg font-bold text-black md:text-xl">
-                <h1 className="">02</h1>
-                <h1 className="">Destinasi</h1>
-              </div>
-
-              <p className="text-left font-sans text-xs font-normal text-black md:text-sm">
-                Dapatkan pengalaman berwisata yang adil dan berbagi kebahagiaan dengan orang yang
-                Anda cintai. Temukan destinasi impian Anda, nikmati, dan sebarkan kebahagiaan
-                bersama aplikasi tiket wisata kami.
-              </p>
-            </div>
-            <div className="">
-              <div className="mb-3 flex justify-start gap-5 font-sans text-lg font-bold text-black md:text-xl">
-                <h1 className="">03</h1>
-                <h1 className="">Pengalaman</h1>
-              </div>
-
-              <p className="text-left font-sans text-xs font-normal text-black md:text-sm">
-                Rasakan Petualangan Sepenuh Hati: Temukan pengalaman tak terlupakan di destinasi
-                favorit Anda dengan aplikasi tiket wisata kami. Buat kenangan indah dalam setiap
-                perjalanan Anda. Bergabunglah dalam petualangan sejati.
-              </p>
+            <div className="-mt-8 h-0.5 border-none text-center md:mx-32 md:-mt-20 md:bg-gray-200"></div>
+            <div className="gap-3 p-4 md:flex md:p-8">
+              {
+                <CardAbout
+                  icon={data[3].icon}
+                  title={data[3].title}
+                  desc={data[3].description}
+                  bgColor={data[3].bgColor}
+                />
+              }
+              <div className="w-0.5 xl:bg-gray-200"></div>
+              {
+                <CardAbout
+                  icon={data[4].icon}
+                  title={data[4].title}
+                  desc={data[4].description}
+                  bgColor={data[4].bgColor}
+                />
+              }
             </div>
           </div>
         </div>

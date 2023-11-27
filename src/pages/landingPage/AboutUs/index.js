@@ -1,2 +1,2 @@
 export * from './AboutUs';
-export * from './AdvantageDestimate';
+export * from './RegisterNow';
