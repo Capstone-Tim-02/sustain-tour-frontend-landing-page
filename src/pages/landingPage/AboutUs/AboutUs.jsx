@@ -60,16 +60,16 @@ const CardAbout = ({ icon, title, desc, bgColor }) => {
 
 export const AboutUs = () => {
   return (
-    <section id='tentang-kami'>
-      <div className="md:-mx-18 -mx-5 mb-[240px] max-h-[600px] bg-primary-60 p-7 px-0 sm:mb-[220px] md:mb-[130px] md:max-h-[500px] xl:-mx-[67px]">
-        <div className="mx-auto flex flex-col items-center gap-5 text-center">
+    <section id="tentang-kami">
+      <div className="md:-mx-18 -mx-5 mb-[240px] max-h-[600px] bg-primary-60 p-7 px-0 sm:mb-[220px] md:max-h-[430px] xl:-mx-[67px]">
+        <div className="mx-auto flex flex-col items-center gap-3 text-center">
           <div className="w-16 rounded-full bg-white p-3">
             <img src={data[0].icon} alt="Icon" />
           </div>
           <h1 className="font-sans text-xl font-bold text-white sm:text-2xl lg:text-3xl">
             {data[0].title}
           </h1>
-          <h3 className="max-w-[500px] font-sans text-sm text-white sm:text-lg md:text-base">
+          <h3 className="max-w-[500px] font-sans text-sm text-white sm:text-lg md:max-w-[600px] md:text-base">
             {data[0].description}
           </h3>
           <div className="rounded-xl bg-white ">
