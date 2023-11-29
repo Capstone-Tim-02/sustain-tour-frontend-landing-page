@@ -45,7 +45,7 @@ const CardAbout = ({ icon, title, desc, bgColor }) => {
   return (
     <div className="flex max-w-[430px] border-b-2 pb-4 md:border-none md:pb-0">
       <div
-        className="mx-6 mt-7 flex h-20 w-[135px] items-center rounded-xl p-4 md:mt-2 md:w-32"
+        className="mx-6 mt-7 flex h-20 w-[155px] items-center rounded-xl p-4 md:mt-2 md:w-32"
         style={{ backgroundColor: bgColor }}
       >
         <img src={icon} alt="Icon" />
