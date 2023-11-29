@@ -1,8 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react';
-import Emailjs from '@emailjs/browser';
+import React, { useState, useEffect } from 'react';
 
 import { ContactInfo } from './SideContact';
 import { ModalSuccess, ModalFailed } from './ModalContact';
+import { CONST } from '@/utils/constants';
+import axios from 'axios';
 
 const data = {
   title: 'Kontak Kami',
@@ -10,12 +11,11 @@ const data = {
 };
 
 export const Contact = () => {
-  const form = useRef();
   const initialForm = {
-    firstName: '',
-    lastName: '',
+    first_name: '',
+    last_name: '',
     email: '',
-    phone: '',
+    phone_number: '',
     message: '',
   };
 
@@ -44,67 +44,59 @@ export const Contact = () => {
 
   const validateInput = (inputForm) => {
     return {
-      firstName: /\s/.test(inputForm.firstName)
-        ? 'Nama depan tidak boleh mengandung spasi'
-        : inputForm.firstName.length === 0
-        ? 'Nama depan harus diisi'
+      first_name: !/^[a-zA-Z0-9 ]*$/.test(inputForm.first_name)
+        ? 'Nama depan tidak boleh mengandung simbol'
+        : inputForm.first_name.length < 3
+        ? 'Nama depan minimal 3 karakter'
         : '',
-
       email: !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(inputForm.email)
-        ? 'Invalid email format.'
+        ? 'Kesalahan format email'
         : '',
-
-      phone:
-        inputForm.phone[0] !== '0' && inputForm.phone.length !== 0
-          ? 'No. Telephone harus dimulai dengan angka 0'
-          : (inputForm.phone.length < 11 || inputForm.phone.length > 13) &&
-            inputForm.phone.length !== 0
+      phone_number:
+        inputForm.phone_number.length < 11 || inputForm.phone_number.length > 13
           ? 'No. Telephone harus 11-13 karakter'
+          : inputForm.phone_number[0] !== '0'
+          ? 'No. Telephone harus dimulai dengan angka 0'
           : '',
-
-      message: inputForm.message.length === 0 ? 'Pesan Tidak boleh kosong' : '',
+      message: inputForm.message.length < 10 ? 'Pesan minimal 10 karakter' : '',
     };
   };
 
   useEffect(() => {
     setErrors(validateInput(inputForm));
   }, [
-    inputForm.firstName,
-    inputForm.lastName,
+    inputForm.first_name,
+    inputForm.last_name,
     inputForm.email,
-    inputForm.phone,
+    inputForm.phone_number,
     inputForm.message,
   ]);
 
-  const handleSendEmail = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
-    Emailjs.sendForm(
-      import.meta.env.VITE_EMAIL_SERVICE_ID,
-      import.meta.env.VITE_EMAIL_TEMPLATE_ID,
-      form.current,
-      import.meta.env.VITE_EMAIL_PUBLIK_KEY
-    ).then(
-      () => {
-        setInputForm(initialForm);
-        setIsSuccess(true);
-      },
-      () => {
-        setInputForm(initialForm);
-        setIsFailed(true);
-      }
-    );
+    try {
+      const result = await axios.post(`${CONST.BASE_URL_API}/cooperation`, inputForm);
 
-    form.current.reset();
-    setTimeout(() => {
-      setIsSuccess(false);
-      setIsFailed(false);
-    }, 3000);
+      console.log(result.data.message);
+      setIsSuccess(true);
+    } catch (error) {
+      console.error(error.response ? error.response.data.message : error);
+      setIsFailed(true);
+      throw new Error(error);
+    } finally {
+      setInputForm(initialForm);
+      setTimeout(() => {
+        setIsSuccess(false);
+        setIsFailed(false);
+      }, 2000);
+    }
   };
 
+  console.log(inputForm);
   return (
     <section id="kontak">
-      <div className="my-6 p-7">
+      <div className="my-6 py-7 md:px-7">
         <div className="mx-auto flex flex-col items-center gap-2 text-center">
           <h1 className="font-sans text-xl font-bold text-primary-100 sm:text-2xl lg:text-3xl">
             {data.title}
@@ -112,34 +104,30 @@ export const Contact = () => {
           <p className="max-w-[500px] font-sans text-sm sm:text-lg md:max-w-[600px] md:text-base">
             {data.desc}
           </p>
-          <div className="mt-5 flex max-h-full max-w-full flex-col rounded-2xl bg-white shadow-[-13px_4px_53px_0px_rgba(0,0,0,0.25)] md:max-h-full md:w-[1000px] md:flex-row xl:max-h-[430px]">
+          <div className="mt-5 flex max-h-full w-screen flex-col bg-white shadow-[-13px_4px_53px_0px_rgba(0,0,0,0.25)] md:max-h-full md:max-w-[880px] md:flex-row md:rounded-2xl xl:max-h-[430px] xl:max-w-[1000px]">
             <ContactInfo />
-            <form
-              ref={form}
-              onSubmit={handleSendEmail}
-              className="flex flex-col gap-0 px-10 py-4 md:gap-3 md:py-12"
-            >
-              <div className="mb-5 flex flex-col justify-between gap-4 md:max-w-full md:flex-row md:gap-3 xl:max-w-full">
+            <form onSubmit={onSubmit} className="flex flex-col gap-0 px-10 py-4 md:gap-3 md:py-12">
+              <div className="mb-5 flex flex-col justify-between gap-5 md:max-w-full md:flex-row md:gap-3 xl:max-w-full">
                 <FormInput
                   type="text"
                   placeholder="Nama Depan"
-                  name="firstName"
-                  value={inputForm.firstName}
+                  name="first_name"
+                  value={inputForm.first_name}
                   onChange={handleChange}
                   onFocus={formFocus}
                   onBlur={formUnFocus}
-                  error={errors.firstName}
+                  error={errors.first_name}
                   onTouched={onTouched}
                 />
                 <FormInput
                   type="text"
                   placeholder="Nama Belakang"
-                  name="lastName"
-                  value={inputForm.lastName}
+                  name="last_name"
+                  value={inputForm.last_name}
                   onChange={handleChange}
                   onFocus={formFocus}
                   onBlur={formUnFocus}
-                  error={errors.lastName}
+                  error={errors.last_name}
                   onTouched={onTouched}
                 />
               </div>
@@ -158,12 +146,12 @@ export const Contact = () => {
                 <FormInput
                   type="number"
                   placeholder="No. Telephone"
-                  name="phone"
-                  value={inputForm.phone}
+                  name="phone_number"
+                  value={inputForm.phone_number}
                   onChange={handleChange}
                   onFocus={formFocus}
                   onBlur={formUnFocus}
-                  error={errors.phone}
+                  error={errors.phone_number}
                   onTouched={onTouched}
                 />
               </div>
@@ -187,7 +175,7 @@ export const Contact = () => {
                   <p className="text-left text-sm text-red-400 md:text-xs">{errors.message}</p>
                 )}
               </div>
-              <div className="mt-3 text-left md:mt-0">
+              <div className="mt-3 text-center sm:text-left md:mt-0">
                 <button
                   className={
                     Object.values(errors).some((error) => error !== '')
@@ -225,7 +213,8 @@ const FormInput = ({
     <div className="flex flex-col">
       <div className="flex items-center border-b-2 border-gray-300 py-1 md:max-w-[300px] lg:w-[300px] xl:w-[280px]">
         <input
-          className="w-full appearance-none border-none bg-transparent px-0 py-1 leading-tight text-gray-700 focus:outline-none"
+          className="w-full appearance-none border-none bg-transparent px-0 py-1 leading-tight text-gray-700 focus:border-0 focus:outline-none active:border-none"
+          style={{ outline: 'none' }}
           type={type}
           placeholder={placeholder}
           name={name}

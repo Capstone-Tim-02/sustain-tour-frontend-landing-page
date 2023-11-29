@@ -24,29 +24,41 @@ const data = {
 
 export const ContactInfo = () => {
   return (
-    <div className="flex max-h-full w-full flex-col gap-4 rounded-2xl rounded-b-none rounded-bl-none bg-primary-100 p-7 text-left text-white md:max-h-[490px] md:max-w-[300px] md:rounded-r-none md:rounded-bl-2xl lg:max-w-[360px] xl:max-h-[430px]">
+    <div className="flex max-h-full w-full flex-col gap-1 rounded-none rounded-b-none rounded-bl-none bg-primary-100 p-7 text-left text-white md:max-h-[490px] md:max-w-[300px] md:gap-4 md:rounded-l-2xl md:rounded-r-none lg:max-w-[360px] xl:max-h-[430px]">
       <img src={Bubble1} alt="bubble" className="-ml-24 -mt-12 w-[180px]" />
-      <h1 className="-mt-24 text-[33px] font-bold md:-mt-14">{data.title}</h1>
-      <p className="max-w-[300px] text-sm md:text-xs xl:max-w-[250px]">{data.desc}</p>
+      <h1 className="-mt-24 text-2xl font-bold md:-mt-14 xl:text-[33px]">{data.title}</h1>
+      <p className="text-xs md:max-w-[300px] md:text-xs xl:max-w-[250px]">{data.desc}</p>
 
       <div className="mt-5 flex flex-col gap-4">
         <div className="flex gap-2">
-          <PhoneIcon alt="phone" className="h-5 w-5" />
-          <p className="max-w-[180px] text-sm  md:max-w-[210px] md:text-xs xl:max-w-[230px]">
-            {data.phone}
-          </p>
+          <div className="md:min-w-[8px]">
+            <PhoneIcon alt="email" className="h-4 w-4 sm:h-5 sm:w-5" />
+          </div>
+          <div>
+            <p className="max-w-sm text-sm md:max-w-[210px] md:text-xs xl:max-w-[230px]">
+              {data.phone}
+            </p>
+          </div>
         </div>
         <div className="flex gap-2">
-          <MailIcon alt="email" className="h-5 w-5" />
-          <p className="max-w-[180px] text-sm  md:max-w-[210px] md:text-xs xl:max-w-[230px]">
-            {data.email}
-          </p>
+          <div className="md:min-w-[8px]">
+            <MailIcon alt="email" className="h-4 w-4 sm:h-5 sm:w-5" />
+          </div>
+          <div>
+            <p className="max-w-sm text-sm md:max-w-[210px] md:text-xs xl:max-w-[230px]">
+              {data.email}
+            </p>
+          </div>
         </div>
         <div className="flex gap-2">
-          <MapPin alt="address" className="h-5 w-5" />
-          <p className="max-w-[180px] text-sm  md:max-w-[210px] md:text-xs xl:max-w-[230px]">
-            {data.address}
-          </p>
+          <div className="md:min-w-[8px]">
+            <MapPin alt="address" className="h-4 w-4 sm:h-5 sm:w-5" />
+          </div>
+          <div>
+            <p className="max-w-sm text-sm md:max-w-[210px] md:text-xs xl:max-w-[230px]">
+              {data.address}
+            </p>
+          </div>
         </div>
       </div>
       <SosmedIcon />
