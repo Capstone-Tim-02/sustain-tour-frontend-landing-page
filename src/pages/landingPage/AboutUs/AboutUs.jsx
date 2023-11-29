@@ -72,7 +72,7 @@ export const AboutUs = () => {
           <h3 className="max-w-[500px] font-sans text-sm text-white sm:text-lg md:max-w-[600px] md:text-base">
             {data[0].description}
           </h3>
-          <div className="rounded-xl bg-white ">
+          <div className="rounded-xl bg-white shadow-[-13px_4px_53px_0px_rgba(0,0,0,0.30)] ">
             <div className="gap-3 p-4 md:flex md:p-8">
               {
                 <CardAbout

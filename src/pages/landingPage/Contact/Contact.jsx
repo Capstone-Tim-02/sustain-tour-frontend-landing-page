@@ -76,9 +76,7 @@ export const Contact = () => {
     e.preventDefault();
 
     try {
-      const result = await axios.post(`${CONST.BASE_URL_API}/cooperation`, inputForm);
-
-      console.log(result.data.message);
+      await axios.post(`${CONST.BASE_URL_API}/cooperation`, inputForm);
       setIsSuccess(true);
     } catch (error) {
       console.error(error.response ? error.response.data.message : error);
@@ -93,7 +91,6 @@ export const Contact = () => {
     }
   };
 
-  console.log(inputForm);
   return (
     <section id="kontak">
       <div className="my-6 py-7 md:px-7">
