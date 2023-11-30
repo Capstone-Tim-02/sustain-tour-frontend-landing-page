@@ -103,7 +103,7 @@ export const Contact = () => {
           </p>
           <div className="mt-5 flex max-h-full w-screen flex-col bg-white shadow-[-13px_4px_53px_0px_rgba(0,0,0,0.25)] md:max-h-full md:max-w-[880px] md:flex-row md:rounded-2xl xl:max-h-[430px] xl:max-w-[1000px]">
             <ContactInfo />
-            <form onSubmit={onSubmit} className="flex flex-col gap-0 px-10 py-4 md:gap-3 md:py-12">
+            <form onSubmit={onSubmit} className="flex flex-col gap-0 px-10 py-4 md:py-8">
               <div className="mb-5 flex flex-col justify-between gap-5 md:max-w-full md:flex-row md:gap-3 xl:max-w-full">
                 <FormInput
                   type="text"
@@ -153,12 +153,12 @@ export const Contact = () => {
                 />
               </div>
               <div>
-                <div className="my-0 border-b-2 border-gray-300 py-1 md:max-w-full xl:max-w-full">
+                <div className="my-0 py-1 md:max-w-full xl:max-w-full">
                   <textarea
                     name="message"
                     id="message"
                     rows="4"
-                    className="w-full appearance-none border-none bg-transparent px-0 py-1 leading-tight text-gray-700 focus:outline-none"
+                    className="block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent focus:border-gray-500 focus:outline-none focus:ring-0"
                     type="text"
                     placeholder="Pesan Anda"
                     value={inputForm.message}
@@ -169,10 +169,12 @@ export const Contact = () => {
                   ></textarea>
                 </div>
                 {onTouched && errors.message && (
-                  <p className="text-left text-sm text-red-400 md:text-xs">{errors.message}</p>
+                  <p className="-mb-4 text-left text-sm text-red-400 md:text-xs">
+                    {errors.message}
+                  </p>
                 )}
               </div>
-              <div className="mt-3 text-center sm:text-left md:mt-0">
+              <div className="mt-3 text-center sm:text-left md:mt-5">
                 <button
                   className={
                     Object.values(errors).some((error) => error !== '')
@@ -208,9 +210,9 @@ const FormInput = ({
 }) => {
   return (
     <div className="flex flex-col">
-      <div className="flex items-center border-b-2 border-gray-300 py-1 md:max-w-[300px] lg:w-[300px] xl:w-[280px]">
+      <div className="flex items-center py-1 md:max-w-[300px] lg:w-[300px] xl:w-[280px]">
         <input
-          className="w-full appearance-none border-none bg-transparent px-0 py-1 leading-tight text-gray-700 focus:border-0 focus:outline-none active:border-none"
+          className="block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent px-0 focus:border-gray-500 focus:outline-none focus:ring-0"
           style={{ outline: 'none' }}
           type={type}
           placeholder={placeholder}
@@ -222,7 +224,7 @@ const FormInput = ({
         />
       </div>
       {onTouched && error && (
-        <p className="text-left font-sans text-sm text-red-400 md:text-xs">{error}</p>
+        <p className="-mb-4 text-left font-sans text-sm text-red-400 md:text-xs">{error}</p>
       )}
     </div>
   );
