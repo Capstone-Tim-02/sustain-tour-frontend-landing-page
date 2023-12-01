@@ -1,4 +1,4 @@
 export * from './CarbonEmision';
-export * from './DestinationPopuler';
+export * from './DestinationUnmissed';
 export * from './Hero';
 export * from './TravelDreams';
