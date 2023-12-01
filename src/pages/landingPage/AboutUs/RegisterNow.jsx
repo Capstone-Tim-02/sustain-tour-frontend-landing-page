@@ -1,6 +1,6 @@
-import ImageHandphone from '@/assets/images/Image-Handphone.png'
+import ImageHandphone from '@/assets/images/Image-Handphone.png';
 
-export const AdvantageDestimate = () => {
+export const RegisterNow = () => {
   return (
     <section id="advantage-destimate">
       <div className="mx-auto my-14 flex w-full flex-col items-center justify-center gap-3  sm:gap-10 md:flex-row">

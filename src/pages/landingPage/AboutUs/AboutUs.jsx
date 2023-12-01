@@ -45,7 +45,7 @@ const CardAbout = ({ icon, title, desc, bgColor }) => {
   return (
     <div className="flex max-w-[430px] border-b-2 pb-4 md:border-none md:pb-0">
       <div
-        className="mx-6 mt-7 flex h-20 w-32 rounded-xl p-4 md:mt-2"
+        className="mx-6 mt-7 flex h-20 w-[155px] items-center rounded-xl p-4 md:mt-2 md:w-32"
         style={{ backgroundColor: bgColor }}
       >
         <img src={icon} alt="Icon" />
@@ -60,19 +60,19 @@ const CardAbout = ({ icon, title, desc, bgColor }) => {
 
 export const AboutUs = () => {
   return (
-    <section id='tentang-kami'>
-      <div className="md:-mx-18 -mx-5 mb-[240px] max-h-[600px] bg-primary-60 p-7 px-0 sm:mb-[220px] md:mb-[130px] md:max-h-[500px] xl:-mx-[67px]">
-        <div className="mx-auto flex flex-col items-center gap-5 text-center">
+    <section id="tentang-kami">
+      <div className="md:-mx-18 -mx-5 mb-[240px] max-h-[600px] bg-primary-60 p-7 px-0 sm:mb-[220px] md:max-h-[430px] xl:-mx-[67px]">
+        <div className="mx-auto flex flex-col items-center gap-3 text-center">
           <div className="w-16 rounded-full bg-white p-3">
             <img src={data[0].icon} alt="Icon" />
           </div>
           <h1 className="font-sans text-xl font-bold text-white sm:text-2xl lg:text-3xl">
             {data[0].title}
           </h1>
-          <h3 className="max-w-[500px] font-sans text-sm text-white sm:text-lg md:text-base">
+          <h3 className="max-w-[500px] font-sans text-sm text-white sm:text-lg md:max-w-[600px] md:text-base">
             {data[0].description}
           </h3>
-          <div className="rounded-xl bg-white ">
+          <div className="rounded-xl bg-white shadow-[-13px_4px_53px_0px_rgba(0,0,0,0.30)] ">
             <div className="gap-3 p-4 md:flex md:p-8">
               {
                 <CardAbout
