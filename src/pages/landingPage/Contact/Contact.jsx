@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-
-import { ContactInfo } from './SideContact';
-import { ModalSuccess, ModalFailed } from './ModalContact';
-import { CONST } from '@/utils/constants';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+
+import { CONST } from '@/utils/constants';
+
+import { ModalFailed, ModalSuccess } from './ModalContact';
+import { ContactInfo } from './SideContact';
 
 const data = {
   title: 'Kontak Kami',
@@ -163,7 +164,6 @@ export const Contact = () => {
                     placeholder="Pesan Anda"
                     value={inputForm.message}
                     onChange={handleChange}
-                    error={errors.message}
                     onFocus={formFocus}
                     onBlur={formUnFocus}
                   ></textarea>

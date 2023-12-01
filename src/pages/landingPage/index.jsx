@@ -4,9 +4,9 @@ import { MainLayout } from '@/components/Layouts';
 import { Navbar } from '@/components/Navbar';
 import { ScrollToTop } from '@/components/ScrollToTop';
 
-import { AboutUs } from './AboutUs';
+import { AboutUs, RegisterNow } from './AboutUs';
 import { Contact } from './Contact';
-import { CarbonEmision, DestinationPopuler, Hero, TravelDreams, RegisterNow } from './Home';
+import { CarbonEmision, DestinationUnmissed, Hero, TravelDreams } from './Home';
 
 export const LandingPage = () => {
   const backgroundStyle = {
@@ -25,7 +25,7 @@ export const LandingPage = () => {
           {/* Home */}
           <Hero />
           <CarbonEmision />
-          <DestinationPopuler />
+          <DestinationUnmissed />
           <TravelDreams />
 
           {/* About Us */}
@@ -35,11 +35,11 @@ export const LandingPage = () => {
           {/* Contact */}
           <Contact />
         </MainLayout>
-      </div>
 
-      {/* Footer */}
-      <Footer />
-      <ScrollToTop />
+        {/* Footer */}
+        <Footer />
+        <ScrollToTop />
+      </div>
     </>
   );
 };
