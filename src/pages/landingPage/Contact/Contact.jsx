@@ -1,132 +1,231 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Bubble1 from '@/assets/images/ContactPage/bubble-1.png';
-import Bubble2 from '@/assets/images/ContactPage/bubble-2.png';
+import React, { useState, useEffect } from 'react';
 
-import {
-  FacebookIcon,
-  InstagramIcon,
-  MailIcon,
-  MapPin,
-  PhoneIcon,
-  TwitterIcon,
-  YoutubeIcon,
-} from 'lucide-react';
+import { ContactInfo } from './SideContact';
+import { ModalSuccess, ModalFailed } from './ModalContact';
+import { CONST } from '@/utils/constants';
+import axios from 'axios';
 
 const data = {
   title: 'Kontak Kami',
   desc: 'Kami Menantikan Cerita Unik Anda. Mulailah Perbincangan, Temukan Inspirasi, dan Bergabung dengan Komunitas Petualang Destimate!',
-
-  contact: {
-    title: 'Informasi Kontak',
-    desc: 'Bagikan Wisata Anda atau Sampaikan Pendapat Anda!',
-    phone: '+62 812 3456 7890',
-    email: 'destimate@gmail.com',
-    address:
-      'Kantor E2, Lantai 5, Khalifa Heights, Jalan Chaklala dekat dengan Committee Chowk, Rawalpindi',
-  },
 };
-
-const FormInput = ({ type, placeholder, label }) => {
-  return (
-    <div className="flex items-center border-b-2 border-gray-300 py-1 md:max-w-[300px] lg:w-[300px] xl:w-[280px]">
-      <input
-        className="w-full appearance-none border-none bg-transparent px-0 py-1 leading-tight text-gray-700 focus:outline-none"
-        type={type}
-        placeholder={placeholder}
-        aria-label={label}
-      />
-    </div>
-  );
-};
-
-function ContactInfo({ contact }) {
-  return (
-    <div className="flex max-h-full w-full flex-col gap-4 rounded-2xl rounded-b-none rounded-bl-none bg-primary-100 p-7 text-left text-white md:max-h-[490px] md:max-w-[300px] md:rounded-r-none md:rounded-bl-2xl lg:max-w-[360px] xl:max-h-[430px]">
-      <img src={Bubble1} alt="bubble" className="-ml-24 -mt-12 w-[180px]" />
-      <h1 className="-mt-14 text-[33px] font-bold">{contact.title}</h1>
-      <p className="max-w-[300px] text-sm md:text-xs xl:max-w-[250px]">{contact.desc}</p>
-
-      <div className="mt-5 flex flex-col gap-4">
-        <div className="flex gap-2">
-          <PhoneIcon alt="phone" className="h-5 w-5" />
-          <p className="max-w-[350px] text-sm md:max-w-[230px] md:text-xs">{contact.phone}</p>
-        </div>
-        <div className="flex gap-2">
-          <MailIcon alt="email" className="h-5 w-5" />
-          <p className="max-w-[350px] text-sm md:max-w-[230px] md:text-xs">{contact.email}</p>
-        </div>
-        <div className="flex gap-2">
-          <MapPin alt="address" className="h-5 w-5" />
-          <p className="max-w-[350px] text-sm md:max-w-[230px] md:text-xs">{contact.address}</p>
-        </div>
-      </div>
-      <SosmedIcon />
-    </div>
-  );
-}
-
-function SosmedIcon() {
-  return (
-    <div className="flex justify-between">
-      <div className="left mt-4 flex gap-4 text-sm text-white md:mt-7">
-        <Link to={'https://www.facebook.com/'} className="cursor-auto">
-          <FacebookIcon className="x-6 -6 rounded-full bg-primary-60  p-1" />
-        </Link>
-        <Link to={'https://www.youtube.com/'} className="cursor-auto">
-          <YoutubeIcon className="h-6 w-6  rounded-full bg-primary-60 p-1" />
-        </Link>
-        <Link to={'https://www.twitter.com/'} className="cursor-auto">
-          <TwitterIcon className="h-6 w-6  rounded-full bg-primary-60 p-1" />
-        </Link>
-        <Link to={'https://www.instagram.com/'} className="cursor-auto">
-          <InstagramIcon className="h-6 w-6  rounded-full bg-primary-60 p-1" />
-        </Link>
-      </div>
-      <img src={Bubble2} alt="bubble" className="relative -mb-28 -mr-10 -mt-4 w-[160px]" />
-    </div>
-  );
-}
 
 export const Contact = () => {
+  const initialForm = {
+    first_name: '',
+    last_name: '',
+    email: '',
+    phone_number: '',
+    message: '',
+  };
+
+  const [inputForm, setInputForm] = useState(initialForm);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isFailed, setIsFailed] = useState(false);
+  const [onTouched, setOnTouched] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    setInputForm({ ...inputForm, [e.target.name]: e.target.value });
+  };
+
+  const formFocus = () => {
+    setOnTouched(true);
+  };
+
+  const formUnFocus = () => {
+    setOnTouched(false);
+  };
+
+  const modalClose = () => {
+    setIsSuccess(false);
+    setIsFailed(false);
+  };
+
+  const validateInput = (inputForm) => {
+    return {
+      first_name: !/^[a-zA-Z0-9 ]*$/.test(inputForm.first_name)
+        ? 'Nama depan tidak boleh mengandung simbol'
+        : inputForm.first_name.length < 3
+        ? 'Nama depan minimal 3 karakter'
+        : '',
+      email: !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(inputForm.email)
+        ? 'Kesalahan format email'
+        : '',
+      phone_number:
+        inputForm.phone_number.length < 11 || inputForm.phone_number.length > 13
+          ? 'No. Telephone harus 11-13 karakter'
+          : inputForm.phone_number[0] !== '0'
+          ? 'No. Telephone harus dimulai dengan angka 0'
+          : '',
+      message: inputForm.message.length < 10 ? 'Pesan minimal 10 karakter' : '',
+    };
+  };
+
+  useEffect(() => {
+    setErrors(validateInput(inputForm));
+  }, [
+    inputForm.first_name,
+    inputForm.last_name,
+    inputForm.email,
+    inputForm.phone_number,
+    inputForm.message,
+  ]);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post(`${CONST.BASE_URL_API}/cooperation`, inputForm);
+      setIsSuccess(true);
+    } catch (error) {
+      console.error(error.response ? error.response.data.message : error);
+      setIsFailed(true);
+      throw new Error(error);
+    } finally {
+      setInputForm(initialForm);
+      setTimeout(() => {
+        setIsSuccess(false);
+        setIsFailed(false);
+      }, 2000);
+    }
+  };
+
   return (
     <section id="kontak">
-      <div className="my-6 p-7">
-        <div className="mx-auto flex flex-col items-center gap-5 text-center">
+      <div className="my-6 py-7 md:px-7">
+        <div className="mx-auto flex flex-col items-center gap-2 text-center">
           <h1 className="font-sans text-xl font-bold text-primary-100 sm:text-2xl lg:text-3xl">
             {data.title}
           </h1>
-          <h3 className="max-w-[500px] font-sans text-sm sm:text-lg md:text-base">{data.desc}</h3>
-          <div className="mt-5 flex max-h-full max-w-full flex-col rounded-2xl bg-white shadow-[-13px_4px_53px_0px_rgba(0,0,0,0.25)] md:max-h-full md:w-[1000px] md:flex-row xl:max-h-[430px]">
-            <ContactInfo contact={data.contact} />
-            <form className="flex flex-col gap-1 px-10 py-12 md:gap-5">
-              <div className="mb-5 flex flex-col justify-between gap-6 md:max-w-full md:flex-row md:gap-3 xl:max-w-full">
-                <FormInput type="text" placeholder="Nama Depan" aria-label="First name" />
-                <FormInput type="text" placeholder="Nama Belakang" aria-label="Last name" />
-              </div>
-              <div className="mb-5 flex flex-col justify-between gap-6 md:max-w-full md:flex-row md:gap-3 xl:max-w-full">
-                <FormInput type="email" placeholder="Email" aria-label="Email" />
-                <FormInput type="number" placeholder="No. Telephone" aria-label="Phone" />
-              </div>
-              <div className="my-4 border-b-2 border-gray-300 py-1 md:max-w-full xl:max-w-full">
-                <textarea
-                  name="message"
-                  id="message"
-                  rows="4"
-                  className="w-full appearance-none border-none bg-transparent px-0 py-1 leading-tight text-gray-700 focus:outline-none"
+          <p className="max-w-[500px] font-sans text-sm sm:text-lg md:max-w-[600px] md:text-base">
+            {data.desc}
+          </p>
+          <div className="mt-5 flex max-h-full w-screen flex-col bg-white shadow-[-13px_4px_53px_0px_rgba(0,0,0,0.25)] md:max-h-full md:max-w-[880px] md:flex-row md:rounded-2xl xl:max-h-[430px] xl:max-w-[1000px]">
+            <ContactInfo />
+            <form onSubmit={onSubmit} className="flex flex-col gap-0 px-10 py-4 md:py-8">
+              <div className="mb-5 flex flex-col justify-between gap-5 md:max-w-full md:flex-row md:gap-3 xl:max-w-full">
+                <FormInput
                   type="text"
-                  placeholder="Pesan Anda"
-                ></textarea>
+                  placeholder="Nama Depan"
+                  name="first_name"
+                  value={inputForm.first_name}
+                  onChange={handleChange}
+                  onFocus={formFocus}
+                  onBlur={formUnFocus}
+                  error={errors.first_name}
+                  onTouched={onTouched}
+                />
+                <FormInput
+                  type="text"
+                  placeholder="Nama Belakang"
+                  name="last_name"
+                  value={inputForm.last_name}
+                  onChange={handleChange}
+                  onFocus={formFocus}
+                  onBlur={formUnFocus}
+                  error={errors.last_name}
+                  onTouched={onTouched}
+                />
               </div>
-              <div className="text-left">
-                <button className="rounded-xl bg-primary-100 px-12 py-2 font-semibold text-white">
+              <div className="mb-5 flex flex-col justify-between gap-4 md:max-w-full md:flex-row md:gap-3 xl:max-w-full">
+                <FormInput
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  value={inputForm.email}
+                  onChange={handleChange}
+                  onFocus={formFocus}
+                  onBlur={formUnFocus}
+                  error={errors.email}
+                  onTouched={onTouched}
+                />
+                <FormInput
+                  type="number"
+                  placeholder="No. Telephone"
+                  name="phone_number"
+                  value={inputForm.phone_number}
+                  onChange={handleChange}
+                  onFocus={formFocus}
+                  onBlur={formUnFocus}
+                  error={errors.phone_number}
+                  onTouched={onTouched}
+                />
+              </div>
+              <div>
+                <div className="my-0 py-1 md:max-w-full xl:max-w-full">
+                  <textarea
+                    name="message"
+                    id="message"
+                    rows="4"
+                    className="block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent focus:border-gray-500 focus:outline-none focus:ring-0"
+                    type="text"
+                    placeholder="Pesan Anda"
+                    value={inputForm.message}
+                    onChange={handleChange}
+                    error={errors.message}
+                    onFocus={formFocus}
+                    onBlur={formUnFocus}
+                  ></textarea>
+                </div>
+                {onTouched && errors.message && (
+                  <p className="-mb-4 text-left text-sm text-red-400 md:text-xs">
+                    {errors.message}
+                  </p>
+                )}
+              </div>
+              <div className="mt-3 text-center sm:text-left md:mt-5">
+                <button
+                  className={
+                    Object.values(errors).some((error) => error !== '')
+                      ? 'mt-4 cursor-not-allowed rounded-xl bg-primary-100 px-12 py-2 font-semibold  text-white'
+                      : 'mt-8 cursor-pointer rounded-xl bg-primary-100 px-12 py-2 font-semibold text-white hover:bg-opacity-90'
+                  }
+                  disabled={Object.values(errors).some((error) => error !== '')}
+                  type="submit"
+                >
                   Kirim
                 </button>
               </div>
             </form>
+            {isSuccess && <ModalSuccess onClick={modalClose} />}
+            {isFailed && <ModalFailed onClick={modalClose} />}
           </div>
         </div>
       </div>
     </section>
+  );
+};
+
+const FormInput = ({
+  type,
+  placeholder,
+  name,
+  value,
+  onChange,
+  error,
+  onFocus,
+  onBlur,
+  onTouched,
+}) => {
+  return (
+    <div className="flex flex-col">
+      <div className="flex items-center py-1 md:max-w-[300px] lg:w-[300px] xl:w-[280px]">
+        <input
+          className="block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent px-0 focus:border-gray-500 focus:outline-none focus:ring-0"
+          style={{ outline: 'none' }}
+          type={type}
+          placeholder={placeholder}
+          name={name}
+          value={value}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onChange={onChange}
+        />
+      </div>
+      {onTouched && error && (
+        <p className="-mb-4 text-left font-sans text-sm text-red-400 md:text-xs">{error}</p>
+      )}
+    </div>
   );
 };
