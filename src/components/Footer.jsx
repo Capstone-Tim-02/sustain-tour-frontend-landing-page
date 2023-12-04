@@ -1,7 +1,8 @@
-import React from 'react';
-import footerlogo from '/logo-2.png';
-import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from 'lucide-react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from 'lucide-react';
+
+import footerlogo from '/logo-2.png';
 
 const data = {
   title: 'Destimate',
@@ -44,7 +45,27 @@ function SosmedIcon() {
   );
 }
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
+
 export const Footer = () => {
+
+  const [navigation, setNavigation] = useState([
+    { name: 'Beranda', href: '#', current: true, id: '' },
+    { name: 'Tentang Kami', href: '#', current: false, id: 'tentang-kami' },
+    { name: 'Kontak', href: '#', current: false, id: 'kontak' },
+  ]);
+
+  const handleItemClick = (clickedItem) => {
+    const updatedNavigation = navigation.map((item) => ({
+      ...item,
+      current: item.name === clickedItem.name,
+      href: `#${item.id}`,
+    }));
+    setNavigation(updatedNavigation);
+  };
+
   return (
     <footer className="mt-24 bg-primary-100">
       <div className="w-full max-w-screen-2xl lg:py-3">
@@ -58,27 +79,38 @@ export const Footer = () => {
                 <div className="text-xl font-bold">
                   <h1>{data.title}</h1>
                 </div>
-                <div className="mb-5 mt-3 flex flex-col text-sm font-normal sm:mb-0 sm:max-w-[230px] xl:max-w-[330px]">
+                <div className="mb-5 mt-3 flex flex-col text-xs font-normal sm:mb-0 sm:max-w-[230px] sm:text-sm xl:max-w-[330px]">
                   <p>{data.desc}</p>
                 </div>
               </div>
               <div className="mb-3 ml-5 flex flex-col gap-2 border-b pb-3 text-white sm:border-0 md:ml-0">
-                <div className="text-sm font-bold">
+                <div className="text-xs font-bold sm:text-sm">
                   <h2>{data.jelajah.title}</h2>
                 </div>
-                <div className="flex flex-col gap-3 text-sm text-white sm:ml-auto md:mr-5">
-                  {Object.values(data.jelajah)
-                    .slice(1)
-                    .map((item, index) => (
-                      <p key={index}>{item}</p>
-                    ))}
+                <div className="flex flex-col gap-3 sm:ml-auto md:mr-5">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => handleItemClick(item)}
+                      className={classNames(
+                        item.current
+                          ? 'font-semibold text-black'
+                          : ' hover:font-semibold hover:text-black',
+                        ' font-heading sm:text-sm text-xs font-semibold'
+                      )} 
+                      aria-current={item.current ? 'page' : undefined}
+                    >
+                      {item.name}
+                    </a>
+                  ))}
                 </div>
               </div>
               <div className="mb-3 ml-5 flex flex-col gap-2 text-white md:ml-0">
-                <div className="text-sm font-bold">
+                <div className="text-xs font-bold sm:text-sm">
                   <h2>{data.contact.title}</h2>
                 </div>
-                <div className="flex max-w-[400px] flex-col gap-3 text-sm text-white sm:ml-auto md:mr-5">
+                <div className="flex max-w-[400px] flex-col gap-3 text-xs text-white sm:ml-auto sm:text-sm md:mr-5">
                   {Object.values(data.contact)
                     .slice(1)
                     .map((item, index) => (
@@ -92,7 +124,7 @@ export const Footer = () => {
         </div>
         <div className="flex flex-col px-12 py-2 pb-6 text-white">
           <span className="border border-white" />
-          <div className="mt-3 text-sm">
+          <div className="mt-3 text-xs sm:text-sm">
             <p>Copyright &copy; 2023 Destimate. All rights reserved</p>
           </div>
         </div>

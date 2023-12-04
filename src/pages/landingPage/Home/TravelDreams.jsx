@@ -37,7 +37,7 @@ export const TravelDreams = () => {
 
   return (
     <section id="travel-dreams">
-      <div className="mx-auto my-14 flex w-full flex-col items-center justify-center gap-5 sm:gap-10 lg:flex-row">
+      <div className="mx-auto flex w-full flex-col items-center justify-center gap-5 pb-10 sm:gap-10 lg:flex-row">
         <div className="flex flex-wrap items-center justify-center gap-4 sm:flex-nowrap">
           {visibleImages.map((image, index) => (
             <div key={index} className="relative h-[338px] w-[200px]">
@@ -57,23 +57,26 @@ export const TravelDreams = () => {
           ))}
         </div>
 
-        <div className="flex flex-col items-start justify-start gap-4 p-5">
-          <h1 className="font-sans text-xl font-bold text-primary-100 sm:text-3xl">
-            Temukan Destinasi Impianmu dengan Destimate!
-          </h1>
-          <p className="font-sans text-xs font-normal text-black sm:text-sm">
-            Explore Seribu Kemungkinan! Destimate Hadir dengan Pilihan Wisata yang Menakjubkan,
-            Sempurna untuk Setiap Jiwa Petualang
-          </p>
-          <div className="flex gap-5">
+        <div className="flex flex-col-reverse items-start justify-start gap-5 lg:p-5 p-0 lg:flex-col">
+          <div className="flex flex-col items-start justify-start gap-4">
+            <h1 className="font-sans text-xl font-bold text-primary-100 sm:text-3xl">
+              Temukan Destinasi Impianmu dengan Destimate!
+            </h1>
+            <p className="font-sans text-xs font-normal text-black sm:text-sm">
+              Explore Seribu Kemungkinan! Destimate Hadir dengan Pilihan Wisata yang Menakjubkan,
+              Sempurna untuk Setiap Jiwa Petualang
+            </p>
+          </div>
+
+          <div className="flex w-full items-center lg:justify-start justify-center gap-5">
             <div
-              className="flex h-10 w-10 items-center justify-center rounded-md border-2 border-solid border-primary-100 shadow-md hover:border-primary-80"
+              className="flex h-7 w-7 items-center justify-center rounded-md border-2 border-solid border-primary-100 shadow-md hover:border-primary-80 md:h-10 md:w-10"
               onClick={handlePrev}
             >
               <ChevronLeftIcon className="text-primary-100" />
             </div>
             <div
-              className="flex h-10 w-10 items-center justify-center rounded-md border-2 border-solid border-primary-100 shadow-md hover:border-primary-80"
+              className="flex h-7 w-7 items-center justify-center rounded-md border-2 border-solid border-primary-100 shadow-md hover:border-primary-80 md:h-10 md:w-10"
               onClick={handleNext}
             >
               <ChevronRightIcon className="text-primary-100" />
@@ -84,4 +87,3 @@ export const TravelDreams = () => {
     </section>
   );
 };
-

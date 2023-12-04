@@ -94,12 +94,12 @@ export const Contact = () => {
 
   return (
     <section id="kontak">
-      <div className="my-6 py-7 md:px-7">
+      <div className="my-6 py-7  mt-0 md:px-7">
         <div className="mx-auto flex flex-col items-center gap-2 text-center">
           <h1 className="font-sans text-xl font-bold text-primary-100 sm:text-2xl lg:text-3xl">
             {data.title}
           </h1>
-          <p className="max-w-[500px] font-sans text-sm sm:text-lg md:max-w-[600px] md:text-base">
+          <p className="max-w-[500px] font-sans text-xs sm:text-sm md:max-w-[600px] ">
             {data.desc}
           </p>
           <div className="mt-5 flex max-h-full w-screen flex-col bg-white shadow-[-13px_4px_53px_0px_rgba(0,0,0,0.25)] md:max-h-full md:max-w-[880px] md:flex-row md:rounded-2xl xl:max-h-[430px] xl:max-w-[1000px]">
@@ -159,7 +159,7 @@ export const Contact = () => {
                     name="message"
                     id="message"
                     rows="4"
-                    className="block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent focus:border-gray-500 focus:outline-none focus:ring-0"
+                    className="block w-full p-0 placeholder:text-sm text-sm appearance-none border-0 border-b-2 border-gray-200 bg-transparent focus:border-gray-500 focus:outline-none focus:ring-0"
                     type="text"
                     placeholder="Pesan Anda"
                     value={inputForm.message}
@@ -169,7 +169,7 @@ export const Contact = () => {
                   ></textarea>
                 </div>
                 {onTouched && errors.message && (
-                  <p className="-mb-4 text-left text-sm text-red-400 md:text-xs">
+                  <p className="-mb-4 text-left font-sans text-xs sm:text-sm text-red-400">
                     {errors.message}
                   </p>
                 )}
@@ -178,8 +178,8 @@ export const Contact = () => {
                 <button
                   className={
                     Object.values(errors).some((error) => error !== '')
-                      ? 'mt-4 cursor-not-allowed rounded-xl bg-primary-100 px-12 py-2 font-semibold  text-white'
-                      : 'mt-8 cursor-pointer rounded-xl bg-primary-100 px-12 py-2 font-semibold text-white hover:bg-opacity-90'
+                      ? 'mt-4 cursor-not-allowed rounded-xl bg-primary-100 px-12 py-2 font-semibold text-sm text-white'
+                      : 'mt-8 cursor-pointer rounded-xl bg-primary-100 px-12 py-2 font-semibold text-sm text-white hover:bg-opacity-90'
                   }
                   disabled={Object.values(errors).some((error) => error !== '')}
                   type="submit"
@@ -212,7 +212,7 @@ const FormInput = ({
     <div className="flex flex-col">
       <div className="flex items-center py-1 md:max-w-[300px] lg:w-[300px] xl:w-[280px]">
         <input
-          className="block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent px-0 focus:border-gray-500 focus:outline-none focus:ring-0"
+          className="block w-full appearance-none border-0 border-b-2 text-sm placeholder:text-sm border-gray-200 bg-transparent px-0 focus:border-gray-500 focus:outline-none focus:ring-0"
           style={{ outline: 'none' }}
           type={type}
           placeholder={placeholder}
@@ -224,7 +224,7 @@ const FormInput = ({
         />
       </div>
       {onTouched && error && (
-        <p className="-mb-4 text-left font-sans text-sm text-red-400 md:text-xs">{error}</p>
+        <p className="-mb-4 text-left font-sans text-xs sm:text-sm text-red-400">{error}</p>
       )}
     </div>
   );
