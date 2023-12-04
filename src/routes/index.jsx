@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { LandingPage } from '@/pages/landingPage';
-import { NotFound } from '@/pages/notFound';
+import { LandingPage } from '@/pages';
+import { NotFound } from '@/pages/NotFound';
 
 export const AppRoutes = () => {
   return (

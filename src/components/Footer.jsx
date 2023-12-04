@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from 'lucide-react';
 
@@ -50,7 +50,6 @@ function classNames(...classes) {
 }
 
 export const Footer = () => {
-
   const [navigation, setNavigation] = useState([
     { name: 'Beranda', href: '#', current: true, id: '' },
     { name: 'Tentang Kami', href: '#', current: false, id: 'tentang-kami' },
@@ -97,8 +96,8 @@ export const Footer = () => {
                         item.current
                           ? 'font-semibold text-black'
                           : ' hover:font-semibold hover:text-black',
-                        ' font-heading sm:text-sm text-xs font-semibold'
-                      )} 
+                        ' font-heading text-xs font-semibold sm:text-sm'
+                      )}
                       aria-current={item.current ? 'page' : undefined}
                     >
                       {item.name}
