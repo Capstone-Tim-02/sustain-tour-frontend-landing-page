@@ -1,27 +1,29 @@
 import { useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
-import ImageBromo from '@/assets/images/ImagesFindDestination/bromo.png';
-import ImageBunaken from '@/assets/images/ImagesFindDestination/bunaken.png';
-import ImageCandiPrambanan from '@/assets/images/ImagesFindDestination/candi-prambanan.png';
-import ImageKawahIjen from '@/assets/images/ImagesFindDestination/kawah-ijen.png';
-import ImageNusaPenida from '@/assets/images/ImagesFindDestination/nusa-penida.png';
-import ImagePantaiPink from '@/assets/images/ImagesFindDestination/pantai-pink.png';
-import ImagePulauWeh from '@/assets/images/ImagesFindDestination/pulau-weh.png';
-import ImageRajaAmpat from '@/assets/images/ImagesFindDestination/raja-ampat.png';
-import ImageRinjani from '@/assets/images/ImagesFindDestination/rinjani.png';
+import {
+  Bromo,
+  Bunaken,
+  CandiPrambanan,
+  KawahIjen,
+  NusaPenida,
+  PantaiPink,
+  PulauWeh,
+  RajaAmpat,
+  Rinjani,
+} from '@/assets/images/ImagesFindDestination';
 
 export const TravelDreams = () => {
   const images = [
-    ImageBromo,
-    ImageRajaAmpat,
-    ImageNusaPenida,
-    ImageCandiPrambanan,
-    ImagePantaiPink,
-    ImageBunaken,
-    ImageRinjani,
-    ImageKawahIjen,
-    ImagePulauWeh,
+    Bromo,
+    Bunaken,
+    CandiPrambanan,
+    KawahIjen,
+    NusaPenida,
+    PantaiPink,
+    PulauWeh,
+    RajaAmpat,
+    Rinjani,
   ];
   const [startIndex, setStartIndex] = useState(0);
 
