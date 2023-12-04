@@ -51,8 +51,8 @@ const CardAbout = ({ icon, title, desc, bgColor }) => {
         <img src={icon} alt="Icon" />
       </div>
       <div className="ml-2 mt-4 text-start md:mt-0">
-        <h1 className="text-xl font-medium">{title}</h1>
-        <p className="mt-3 text-sm md:mt-5">{desc}</p>
+        <h1 className="text-base md:text-xl font-medium">{title}</h1>
+        <p className="mt-3 text-xs sm:text-sm md:mt-5">{desc}</p>
       </div>
     </div>
   );
@@ -61,7 +61,7 @@ const CardAbout = ({ icon, title, desc, bgColor }) => {
 export const AboutUs = () => {
   return (
     <section id="tentang-kami">
-      <div className="md:-mx-18 -mx-5 mb-[240px] max-h-[600px] bg-primary-60 p-7 px-0 sm:mb-[220px] md:max-h-[430px] xl:-mx-[67px]">
+      <div className="md:-mx-18 -mx-5 mb-[180px] max-h-[600px] bg-primary-60 p-7 px-0 md:max-h-[430px] xl:-mx-[66px]">
         <div className="mx-auto flex flex-col items-center gap-3 text-center">
           <div className="w-16 rounded-full bg-white p-3">
             <img src={data[0].icon} alt="Icon" />
@@ -69,7 +69,7 @@ export const AboutUs = () => {
           <h1 className="font-sans text-xl font-bold text-white sm:text-2xl lg:text-3xl">
             {data[0].title}
           </h1>
-          <h3 className="max-w-[500px] font-sans text-sm text-white sm:text-lg md:max-w-[600px] md:text-base">
+          <h3 className="max-w-[500px] font-sans text-xs sm:text-sm text-white md:max-w-[600px] md:text-base">
             {data[0].description}
           </h3>
           <div className="rounded-xl bg-white shadow-[-13px_4px_53px_0px_rgba(0,0,0,0.30)] ">

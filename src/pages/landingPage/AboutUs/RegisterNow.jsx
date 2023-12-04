@@ -2,8 +2,8 @@ import ImageHandphone from '@/assets/images/Image-Handphone.png';
 
 export const RegisterNow = () => {
   return (
-    <section id="advantage-destimate">
-      <div className="mx-auto my-14 flex w-full flex-col items-center justify-center gap-3  sm:gap-10 md:flex-row">
+    <section id="register-now">
+      <div className="mx-auto pb-10 flex w-full flex-col items-center justify-center gap-3  sm:gap-10 md:flex-row">
         <div className="flex w-2/4 items-center justify-center">
           <img className="rounded-lg" src={ImageHandphone} alt="image-handphone" />
         </div>

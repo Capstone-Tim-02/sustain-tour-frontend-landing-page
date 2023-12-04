@@ -8,13 +8,13 @@ import { IconLine } from '@/components/Icons';
 export const Hero = () => {
   return (
     <section id="hero">
-      <div className='mx-auto w-full flex flex-col'>
+      <div className='mx-auto pb-10 w-full flex flex-col '>
         <div className="flex flex-col justify-between gap-5 md:gap-10 lg:flex-row lg:gap-20">
-          <div className='flex flex-col gap-[2em] w-full lg:max-w-[40%]'>
-            <h1 className='font-sans text-xl font-bold text-primary-100 sm:text-2xl lg:text-4xl text-center md:text-left'>
+          <div className='flex flex-col gap-[2em] w-full sm:w-2/4 lg:max-w-[40%]'>
+            <h1 className='font-sans text-xl font-bold text-primary-100 sm:text-2xl lg:text-xl text-left w-2/4 sm:w-full'>
               EKSPLORASI KECANTIKAN YANG MEMPESONA
             </h1>
-            <p className='font-sans text-sm font-greyDestimate-100 text-center md:text-left'>
+            <p className='font-sans text-xs sm:text-sm font-greyDestimate-100 text-left'>
               Temukan keindahan tersembunyi dan alami petualangan tanpa batas! Unduh Destimate sekarang dan jadilah bagian dari ekspedisi seru bersama tim ahli. Jangan lewatkan! 🌍✨
             </p>
             <div 
@@ -29,12 +29,12 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className='flex flex-col mt-2 justify-center sm:flex-row gap-[2em] lg:gap-[4em]'>
+        <div className='flex mt-2 justify-center gap-4 lg:gap-[4em]'>
           <div className='flex flex-col justify-center text-center gap-2'>
             <h1 className='font-sans text-md font-bold text-primary-100 lg:text-2xl'>+2k</h1>
-            <div className='flex flex-row gap-2 justify-center text-center'>
+            <div className='flex flex-row gap-2 justify-center items-center text-center'>
               <DownloadCloud />
-              <p className='font-sans text-sm'>Pengguna</p>
+              <p className='font-sans text-xs sm:text-sm'>Pengguna</p>
             </div>
           </div>
 
@@ -42,9 +42,9 @@ export const Hero = () => {
 
           <div className='flex flex-col justify-center text-center gap-2'>
             <h1 className='font-sans text-md font-bold text-primary-100 lg:text-2xl'>+5k</h1>
-            <div className='flex flex-row gap-2 justify-center text-center'>
+            <div className='flex flex-row gap-2 justify-center items-center text-center'>
               <CircleDollarSign/>
-              <p className='font-sans text-sm '>Transaksi</p>
+              <p className='font-sans text-xs sm:text-sm '>Transaksi</p>
             </div>
           </div>
 
@@ -52,9 +52,9 @@ export const Hero = () => {
 
           <div className='flex flex-col justify-center text-center gap-2'>
             <h1 className='font-sans text-md font-bold text-primary-100 lg:text-2xl'>+100</h1>
-            <div className='flex flex-row gap-2 justify-center text-center'>
+            <div className='flex flex-row gap-2 justify-center items-center text-center'>
               <MapPin />
-              <p className='font-sans text-sm '>Destinasi</p>
+              <p className='font-sans text-xs sm:text-sm'>Destinasi</p>
             </div>
           </div>
         </div>
