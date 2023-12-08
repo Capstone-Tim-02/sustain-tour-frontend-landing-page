@@ -85,10 +85,11 @@ export const Contact = () => {
       }, 2000);
     }
   };
+  
 
   return (
     <section id="kontak">
-      <div className="my-6 mt-0  py-7 md:px-7">
+      <div className="my-6 mt-0  py-1 md:px-7 mr-[2rem] lg:ml-[-4rem]">
         <div className="mx-auto flex flex-col items-center gap-2 text-center">
           <h1 className="font-sans text-xl font-bold text-primary-100 sm:text-2xl lg:text-3xl">
             {data.title}
