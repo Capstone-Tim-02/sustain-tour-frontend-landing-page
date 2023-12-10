@@ -1,3 +1,4 @@
+import BackgroundContactImage from '@/assets/images/ImagesContact/Background-Contact-Image.png';
 import { BackgroundImage } from '@/assets/images/ImagesHero';
 import { Footer } from '@/components/Footer';
 import { MainLayout } from '@/components/Layouts';
@@ -16,9 +17,16 @@ export const LandingPage = () => {
     backgroundPosition: 'top right',
   };
 
+  const backgroundAbouteUsStyle = {
+    backgroundImage: `url(${BackgroundContactImage})`,
+    backgroundSize: '27%',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'top 20rem right',
+  };
+
   return (
     <>
-      <div style={backgroundStyle}>
+      <div style={backgroundStyle} className='overflow-x-hidden'>
         <Navbar />
 
         <MainLayout title="Destimate">
@@ -30,10 +38,15 @@ export const LandingPage = () => {
 
           {/* About Us */}
           <AboutUs />
-          <RegisterNow />
 
-          {/* Contact */}
-          <Contact />
+          <div style={backgroundAbouteUsStyle} className='mr-[-2rem] lg:mr-[-4rem]'>
+            <RegisterNow />
+          
+          
+
+            {/* Contact */}
+            <Contact />
+          </div>
         </MainLayout>
 
         {/* Footer */}

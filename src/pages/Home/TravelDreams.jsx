@@ -36,7 +36,7 @@ export const TravelDreams = () => {
 
   return (
     <section id="travel-dreams">
-      <div className="mx-auto flex w-full flex-col items-center justify-center gap-5 pb-10 sm:gap-10 lg:flex-row">
+      <div className="mx-auto flex w-full flex-col items-center justify-center gap-5 sm:gap-10 lg:mb-[10rem] lg:flex-row lg:mt-16">
         <div className="flex flex-wrap items-center justify-center gap-4 sm:flex-nowrap">
           {visibleImages.map((image, index) => (
             <div key={index} className="relative h-[338px] w-[200px]">
