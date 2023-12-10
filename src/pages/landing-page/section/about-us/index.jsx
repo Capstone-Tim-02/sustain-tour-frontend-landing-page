@@ -45,7 +45,7 @@ const data = [
 
 const CardAbout = ({ icon, title, desc, bgColor }) => {
   return (
-    <div className="flex max-w-[430px] border-b-2 pb-4 md:border-none md:pb-0">
+    <div className="flex max-w-[345px] md:max-w-[360px] lg:max-w-[430px] border-b-2 pb-4 md:border-none md:pb-0">
       <div
         className="mx-6 mt-7 flex h-20 w-[155px] items-center rounded-xl p-4 md:mt-2 md:w-32"
         style={{ backgroundColor: bgColor }}
@@ -63,7 +63,7 @@ const CardAbout = ({ icon, title, desc, bgColor }) => {
 export const AboutUs = () => {
   return (
     <section id="tentang-kami">
-      <div className="md:-mx-18 -mx-5 mb-[180px] max-h-[600px] bg-primary-60 p-7 px-0 md:max-h-[430px] xl:-mx-[66px]">
+      <div className="md:-mx-18 -mx-5 mb-[180px] max-h-[600px] bg-primary-60 p-7 px-0 md:max-h-[430px] xl:-mx-[66px] mt-10"> 
         <div className="mx-auto flex flex-col items-center gap-3 text-center">
           <div className="w-16 rounded-full bg-white p-3">
             <img src={data[0].icon} alt="Icon" />
