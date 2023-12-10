@@ -5,9 +5,15 @@ import { MainLayout } from '@/components/Layouts';
 import { Navbar } from '@/components/Navbar';
 import { ScrollToTop } from '@/components/ScrollToTop';
 
-import { AboutUs, RegisterNow } from './AboutUs';
-import { Contact } from './Contact';
-import { CarbonEmision, DestinationUnmissed, Hero, TravelDreams } from './Home';
+import {
+  AboutUs,
+  CarbonEmission,
+  Contact,
+  DestinationUnmissed,
+  Hero,
+  RegisterNow,
+  TravelDreams,
+} from './section';
 
 export const LandingPage = () => {
   const backgroundStyle = {
@@ -28,11 +34,10 @@ export const LandingPage = () => {
     <>
       <div style={backgroundStyle} className='overflow-x-hidden'>
         <Navbar />
-
         <MainLayout title="Destimate">
           {/* Home */}
           <Hero />
-          <CarbonEmision />
+          <CarbonEmission />
           <DestinationUnmissed />
           <TravelDreams />
 
