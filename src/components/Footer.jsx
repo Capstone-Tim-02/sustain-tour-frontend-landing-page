@@ -94,8 +94,8 @@ export const Footer = () => {
                       onClick={() => handleItemClick(item)}
                       className={classNames(
                         item.current
-                          ? 'font-semibold text-black'
-                          : ' hover:font-semibold hover:text-black',
+                          ? 'font-semibold'
+                          : ' hover:font-semibold hover:text-slate-300',
                         ' font-heading text-xs font-semibold sm:text-sm'
                       )}
                       aria-current={item.current ? 'page' : undefined}
