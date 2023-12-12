@@ -8,8 +8,8 @@ export const Hero = () => {
     <section id="hero">
       <div className="mx-auto flex w-full flex-col pb-10">
         <div className="flex flex-col justify-between gap-5 md:gap-10 lg:flex-row lg:gap-20">
-          <div className="flex w-full flex-col gap-[2em] sm:w-2/4 lg:max-w-[40%]">
-            <h1 className="w-2/4 text-left font-sans text-xl font-bold text-primary-100 sm:w-full sm:text-2xl lg:text-xl">
+          <div className="flex w-full flex-col gap-[2em] sm:w-2/4 lg:max-w-[40%] lg:pt-7">
+            <h1 className="w-2/4 text-left font-sans text-xl font-bold text-primary-100 sm:w-full sm:text-3xl">
               EKSPLORASI KECANTIKAN YANG MEMPESONA
             </h1>
             <p className="font-greyDestimate-100 text-left font-sans text-xs sm:text-sm">

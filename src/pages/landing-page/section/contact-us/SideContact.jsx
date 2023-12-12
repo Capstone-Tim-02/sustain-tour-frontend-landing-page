@@ -22,7 +22,7 @@ const data = {
 
 export const ContactInfo = () => {
   return (
-    <div className="flex max-h-full w-full flex-col gap-1 rounded-none rounded-b-none rounded-bl-none bg-primary-100 p-7 text-left text-white md:max-h-[490px] md:max-w-[300px] md:gap-4 md:rounded-l-2xl md:rounded-r-none lg:max-w-[360px] xl:max-h-[430px]">
+    <div className="flex max-h-full w-full flex-col gap-1 rounded-none rounded-b-none rounded-bl-none bg-primary-100 p-7 text-left text-white md:max-h-[490px] md:max-w-[350px] md:gap-4 md:rounded-l-2xl md:rounded-r-none lg:max-w-[380px] xl:max-w-[400px] xl:max-h-[430px]">
       <img src={Bubble1} alt="bubble-1" className="-ml-24 -mt-12 w-[180px]" />
       <h1 className="-mt-24 text-base font-bold md:-mt-14 md:text-2xl">{data.title}</h1>
       <p className="text-xs sm:text-sm md:max-w-[300px] xl:max-w-[250px]">{data.desc}</p>
