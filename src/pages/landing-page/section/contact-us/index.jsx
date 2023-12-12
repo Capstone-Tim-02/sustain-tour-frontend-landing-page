@@ -85,11 +85,10 @@ export const Contact = () => {
       }, 2000);
     }
   };
-  
 
   return (
     <section id="kontak">
-      <div className="my-6 mr-[2rem]  mt-0 py-1 md:px-7 lg:ml-[-4rem]">
+      <div className=" py-6 md:px-7 lg:py-6">
         <div className="mx-auto flex flex-col items-center gap-2 text-center">
           <h1 className="font-sans text-xl font-bold text-primary-100 sm:text-2xl lg:text-3xl">
             {data.title}
@@ -99,7 +98,10 @@ export const Contact = () => {
           </p>
           <div className="mt-5 flex max-h-full w-screen flex-col bg-white shadow-[-13px_4px_53px_0px_rgba(0,0,0,0.25)] md:max-h-full md:max-w-[950px] md:flex-row md:rounded-2xl xl:max-h-[420px] xl:max-w-[1000px]">
             <ContactInfo />
-            <form onSubmit={onSubmit} className="flex w-full flex-col gap-0 px-10 py-4 md:py-8">
+            <form
+              onSubmit={onSubmit}
+              className="flex w-full flex-col gap-0 px-10 py-4 md:gap-3 md:py-8"
+            >
               <div className="mb-5 flex flex-col justify-between gap-5 md:max-w-full md:flex-row md:gap-3 lg:max-w-full xl:max-w-full">
                 <FormInput
                   type="text"
@@ -175,7 +177,7 @@ export const Contact = () => {
                 <button
                   className={
                     Object.values(errors).some((error) => error !== '')
-                      ? 'mt-4 cursor-not-allowed rounded-xl bg-primary-100 px-12 py-2 text-sm font-semibold text-white'
+                      ? 'mt-4 cursor-not-allowed rounded-xl bg-primary-100/60 px-12 py-2 text-sm font-semibold text-white'
                       : 'mt-8 cursor-pointer rounded-xl bg-primary-100 px-12 py-2 text-sm font-semibold text-white hover:bg-opacity-90'
                   }
                   disabled={Object.values(errors).some((error) => error !== '')}
@@ -206,7 +208,7 @@ const FormInput = ({
   onTouched,
 }) => {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex w-full flex-col">
       <div className="flex items-center py-1 md:max-w-[300px] lg:w-[300px] xl:w-[280px]">
         <input
           className="block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent px-0 text-sm placeholder:text-sm focus:border-gray-500 focus:outline-none focus:ring-0"

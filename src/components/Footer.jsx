@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from 'lucide-react';
 
 import footerlogo from '/logo-2.png';
+import { date } from 'yup';
 
 const data = {
   title: 'Destimate',
@@ -18,7 +19,7 @@ const data = {
   contact: {
     title: 'Kontak Kami',
     item1: '+62 81367840275',
-    item2: 'destimate@gmail.com',
+    item2: 'hidestimate@gmail.com',
     item3:
       'Kantor E2, Lantai 5, Khalifa Heights, Jalan Chaklala dekat dengan Committee Chowk, Rawalpindi',
   },
@@ -28,16 +29,16 @@ function SosmedIcon() {
   return (
     <div className="ml-5 flex flex-row-reverse sm:flex-col-reverse md:ml-0">
       <div className="flex flex-row items-end gap-3 text-sm text-white sm:ml-auto xl:gap-5">
-        <Link to={'https://www.facebook.com/'} className="cursor-auto">
+        <Link to={'https://www.facebook.com/'} target="_blank" className="cursor-pointer">
           <FacebookIcon className="h-7 w-7 rounded-full bg-primary-60 p-1 xl:h-8 xl:w-8" />
         </Link>
-        <Link to={'https://www.youtube.com/'} className="cursor-auto">
+        <Link to={'https://www.youtube.com/'} target="_blank" className="cursor-pointer">
           <YoutubeIcon className="h-7 w-7 rounded-full bg-primary-60  p-1 xl:h-8 xl:w-8" />
         </Link>
-        <Link to={'https://www.twitter.com/'} className="cursor-auto">
+        <Link to={'https://www.twitter.com/'} target="_blank" className="cursor-pointer">
           <TwitterIcon className="h-7 w-7 rounded-full bg-primary-60  p-1 xl:h-8 xl:w-8" />
         </Link>
-        <Link to={'https://www.instagram.com/'} className="cursor-auto">
+        <Link to={'https://www.instagram.com/'} target="_blank" className="cursor-pointer">
           <InstagramIcon className="h-7 w-7 rounded-full bg-primary-60  p-1 xl:h-8 xl:w-8" />
         </Link>
       </div>
@@ -66,7 +67,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="mt-24 bg-primary-100">
+    <footer className="mt-24 flex justify-center bg-primary-100">
       <div className="w-full max-w-screen-2xl lg:py-3">
         <div className="flex px-12 pb-3 pt-7">
           <div className="w-8">
@@ -113,7 +114,11 @@ export const Footer = () => {
                   {Object.values(data.contact)
                     .slice(1)
                     .map((item, index) => (
-                      <p key={index}>{item}</p>
+                      <div key={index}>
+                        {index === 1 && <a href="mailto:hidestimate@gmail.com">{item}</a>}
+
+                        {index != 1 && <p>{item}</p>}
+                      </div>
                     ))}
                 </div>
               </div>
@@ -124,7 +129,7 @@ export const Footer = () => {
         <div className="flex flex-col px-12 py-2 pb-6 text-white">
           <span className="border border-white" />
           <div className="mt-3 text-xs sm:text-sm">
-            <p>Copyright &copy; 2023 Destimate. All rights reserved</p>
+            <p>Copyright &copy; {new Date().getFullYear()} Destimate. All rights reserved</p>
           </div>
         </div>
       </div>
