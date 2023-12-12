@@ -23,15 +23,14 @@ export const Navbar = () => {
     setNavigation(updatedNavigation);
   };
 
-
   return (
-    <div className={`container px-6 max-w-none sticky top-0 z-40 bg-white shadow-md`}>
+    <div className={`container sticky top-0 z-40 max-w-none bg-white px-6 shadow-md`}>
       <nav id="beranda">
         <Disclosure as="nav">
           {({ open }) => (
             <>
-              <div className="mx-auto max-w-full">
-                <div className="relative flex h-16 items-center justify-between">
+              <div className="flex justify-center">
+                <div className="relative flex h-16 w-full max-w-7xl items-center justify-between">
                   <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
                     {/* Mobile menu button*/}
                     <Disclosure.Button className="hover: relative inline-flex items-center justify-center rounded-md p-2 text-greyDestimate-100 hover:text-primary-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -50,7 +49,7 @@ export const Navbar = () => {
                   <img className="h-8 w-auto" src="/logo-3.png" alt="Destimate" />
                   <div className="flex flex-shrink-0 items-center">
                     <div className="hidden sm:ml-6 sm:block ">
-                      <div className="flex space-x-4 gap-6">
+                      <div className="flex gap-6 space-x-4">
                         {navigation.map((item) => (
                           <a
                             key={item.name}

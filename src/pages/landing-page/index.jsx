@@ -1,9 +1,6 @@
 import BackgroundContactImage from '@/assets/images/ImagesContact/Background-Contact-Image.png';
 import { BackgroundImage } from '@/assets/images/ImagesHero';
-import { Footer } from '@/components/Footer';
 import { MainLayout } from '@/components/Layouts';
-import { Navbar } from '@/components/Navbar';
-import { ScrollToTop } from '@/components/ScrollToTop';
 
 import {
   AboutUs,
@@ -18,7 +15,7 @@ import {
 export const LandingPage = () => {
   const backgroundStyle = {
     backgroundImage: `url(${BackgroundImage})`,
-    backgroundSize: '43%',
+    backgroundSize: '47%',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'top right',
   };
@@ -31,33 +28,26 @@ export const LandingPage = () => {
   };
 
   return (
-    <>
-      <div style={backgroundStyle} className='overflow-x-hidden'>
-        <Navbar />
-        <MainLayout title="Destimate">
-          {/* Home */}
-          <Hero />
-          <CarbonEmission />
-          <DestinationUnmissed />
-          <TravelDreams />
-
-          {/* About Us */}
-          <AboutUs />
-
-          <div style={backgroundAbouteUsStyle} className='mr-[-2rem] lg:mr-[-4rem]'>
-            <RegisterNow />
-          
-          
-
-            {/* Contact */}
-            <Contact />
-          </div>
-        </MainLayout>
-
-        {/* Footer */}
-        <Footer />
-        <ScrollToTop />
+    <MainLayout title="Destimate">
+      <div
+        style={backgroundStyle}
+        className="mr-[-2rem] mt-[-100px] pr-[2rem] pt-[100px] lg:mr-[-65px] lg:mt-[-158px] lg:pr-[65px] lg:pt-[158px]"
+      >
+        <Hero />
       </div>
-    </>
+
+      <CarbonEmission />
+      <DestinationUnmissed />
+      <TravelDreams />
+      <AboutUs />
+
+      <div
+        style={backgroundAbouteUsStyle}
+        className="mr-[-2rem] pr-[2rem] lg:mr-[-4rem] lg:pr-[4rem] "
+      >
+        <RegisterNow />
+        <Contact />
+      </div>
+    </MainLayout>
   );
 };

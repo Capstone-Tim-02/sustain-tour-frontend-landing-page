@@ -9,7 +9,7 @@ export const Hero = () => {
       <div className="mx-auto flex w-full flex-col pb-10">
         <div className="flex flex-col justify-between gap-5 md:gap-10 lg:flex-row lg:gap-20">
           <div className="flex w-full flex-col gap-[2em] sm:w-2/4 lg:max-w-[40%] lg:pt-7">
-            <h1 className="w-2/4 text-left font-sans text-xl font-bold text-primary-100 sm:w-full sm:text-3xl">
+            <h1 className="w-[66%] text-left font-sans text-xl font-bold text-primary-100 sm:w-full sm:text-4xl">
               EKSPLORASI KECANTIKAN YANG MEMPESONA
             </h1>
             <p className="font-greyDestimate-100 text-left font-sans text-xs sm:text-sm">
@@ -17,9 +17,17 @@ export const Hero = () => {
               sekarang dan jadilah bagian dari ekspedisi seru bersama tim ahli. Jangan lewatkan!
               🌍✨
             </p>
-            <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:justify-start">
-              <img src={AppStore} style={{ maxWidth: '8em' }} onClick={() => {}} />
-              <img src={PlayStore} style={{ maxWidth: '8em' }} />
+            <div className="flex items-center justify-center gap-6 sm:justify-start">
+              <a
+                href="https://www.apple.com/id/app-store/"
+                target="_blank"
+                className="cursor-pointer"
+              >
+                <img src={AppStore} style={{ maxWidth: '8em' }} />
+              </a>
+              <a href="https://play.google.com" target="_blank" className="cursor-pointer">
+                <img src={PlayStore} style={{ maxWidth: '8em' }} />
+              </a>
             </div>
           </div>
           <div className="mb-3 flex w-full justify-center lg:max-w-[40%]">
