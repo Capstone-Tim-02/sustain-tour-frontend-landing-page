@@ -34,10 +34,6 @@ export const Contact = () => {
     setOnTouched(true);
   };
 
-  const formUnFocus = () => {
-    setOnTouched(false);
-  };
-
   const modalClose = () => {
     setIsSuccess(false);
     setIsFailed(false);
@@ -110,7 +106,6 @@ export const Contact = () => {
                   value={inputForm.first_name}
                   onChange={handleChange}
                   onFocus={formFocus}
-                  onBlur={formUnFocus}
                   error={errors.first_name}
                   onTouched={onTouched}
                   className="w-2/4"
@@ -122,7 +117,6 @@ export const Contact = () => {
                   value={inputForm.last_name}
                   onChange={handleChange}
                   onFocus={formFocus}
-                  onBlur={formUnFocus}
                   error={errors.last_name}
                   onTouched={onTouched}
                   className="w-2/4"
@@ -136,7 +130,6 @@ export const Contact = () => {
                   value={inputForm.email}
                   onChange={handleChange}
                   onFocus={formFocus}
-                  onBlur={formUnFocus}
                   error={errors.email}
                   onTouched={onTouched}
                 />
@@ -147,7 +140,6 @@ export const Contact = () => {
                   value={inputForm.phone_number}
                   onChange={handleChange}
                   onFocus={formFocus}
-                  onBlur={formUnFocus}
                   error={errors.phone_number}
                   onTouched={onTouched}
                 />
@@ -164,7 +156,6 @@ export const Contact = () => {
                     value={inputForm.message}
                     onChange={handleChange}
                     onFocus={formFocus}
-                    onBlur={formUnFocus}
                   ></textarea>
                 </div>
                 {onTouched && errors.message && (
