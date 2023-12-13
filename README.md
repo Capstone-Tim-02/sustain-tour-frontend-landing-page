@@ -27,11 +27,11 @@ This website serves as a bridge for users between the base website and the Desti
 
 ### Built With
 This project is built utilizing several technology stacks, as listed below </br>
-[![React][React.js]](React-url)
-[![Vite][Vite]](Vite-url)
-[![Tailwind][Tailwind]](Tailwind-url)
-[![Github][Github]](Github-url)
-[![Netlify][Netlify]](Netlify-url)
+[![React][React.js]][React-url]
+[![Vite][Vite]][Vite-url]
+[![Tailwind][Tailwind]][Tailwind-url]
+[![Github][Github]][Github-url]
+[![Netlify][Netlify]][Netlify-url]
 
 ### Project Structure
 Most of the code lives in the `src` folder and looks like this:
