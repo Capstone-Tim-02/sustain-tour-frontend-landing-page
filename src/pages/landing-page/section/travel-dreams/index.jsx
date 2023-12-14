@@ -36,7 +36,7 @@ export const TravelDreams = () => {
 
   return (
     <section id="travel-dreams">
-      <div className="mx-auto flex w-full flex-col items-center justify-center gap-5 sm:gap-10 lg:mb-[10rem] lg:flex-row lg:mt-16">
+      <div className="mx-auto flex w-full flex-col items-center justify-center gap-5 sm:gap-10 lg:mb-[10rem] lg:mt-16 lg:flex-row">
         <div className="flex flex-wrap items-center justify-center gap-4 sm:flex-nowrap">
           {visibleImages.map((image, index) => (
             <div key={index} className="relative h-[338px] w-[200px]">
@@ -69,13 +69,13 @@ export const TravelDreams = () => {
 
           <div className="flex w-full items-center justify-center gap-5 lg:justify-start">
             <div
-              className="flex h-7 w-7 items-center justify-center rounded-md border-2 border-solid border-primary-100 shadow-md hover:border-primary-80 md:h-10 md:w-10"
+              className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md border-2 border-solid border-primary-100 shadow-md hover:border-primary-80 md:h-10 md:w-10"
               onClick={handlePrev}
             >
               <ChevronLeftIcon className="text-primary-100" />
             </div>
             <div
-              className="flex h-7 w-7 items-center justify-center rounded-md border-2 border-solid border-primary-100 shadow-md hover:border-primary-80 md:h-10 md:w-10"
+              className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md border-2 border-solid border-primary-100 shadow-md hover:border-primary-80 md:h-10 md:w-10"
               onClick={handleNext}
             >
               <ChevronRightIcon className="text-primary-100" />

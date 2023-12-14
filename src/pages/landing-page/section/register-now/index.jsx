@@ -16,12 +16,14 @@ export const RegisterNow = () => {
             Temukan Keindahan Tanpa Batas! Daftarkan Wisatamu di Destimate dan Mulailah Petualangan
             yang Tak Terlupakan. Bergabunglah Sekarang!
           </p>
-          <button
-            type="button"
-            className="rounded-md border-2 border-primary-100 p-3 font-sans text-xs font-semibold text-primary-100 hover:border-primary-60 md:px-10 md:text-sm"
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe89cB-W7M2Npsr-veJDuWuGIyT-R4my4v2tUJpjmGaFnLWjA/formResponse"
+            target="_blank"
+            className="rounded-md border-2 border-primary-100 p-3 font-sans text-xs font-semibold text-primary-100 duration-150 hover:border-primary-100 hover:bg-primary-100 hover:text-white md:px-10 md:text-sm"
+            rel="noreferrer"
           >
             Daftar Sekarang
-          </button>
+          </a>
         </div>
       </div>
     </section>
