@@ -41,11 +41,14 @@ export const Contact = () => {
 
   const validateInput = (inputForm) => {
     return {
-      first_name: !/^[a-zA-Z0-9 ]*$/.test(inputForm.first_name)
-        ? 'Nama depan tidak boleh mengandung simbol'
-        : inputForm.first_name.length < 3
-        ? 'Nama depan minimal 3 karakter'
-        : '',
+      first_name:
+        inputForm.first_name[0] === ' '
+          ? 'Nama Depan tidak boleh diawali dengan spasi'
+          : !/^[a-zA-Z0-9 ]*$/.test(inputForm.first_name)
+          ? 'Nama depan tidak boleh mengandung simbol'
+          : inputForm.first_name.length < 3
+          ? 'Nama depan minimal 3 karakter'
+          : '',
       email: !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(inputForm.email)
         ? 'Kesalahan format email'
         : '',
@@ -55,7 +58,12 @@ export const Contact = () => {
           : inputForm.phone_number[0] !== '0'
           ? 'No. Telephone harus dimulai dengan angka 0'
           : '',
-      message: inputForm.message.length < 10 ? 'Pesan minimal 10 karakter' : '',
+      message:
+        inputForm.message[0] === ' '
+          ? 'Pesan tidak boleh diawali dengan spasi'
+          : inputForm.message.length < 10
+          ? 'Pesan minimal 10 karakter'
+          : '',
     };
   };
 
@@ -76,6 +84,7 @@ export const Contact = () => {
     } finally {
       setInputForm(initialForm);
       setTimeout(() => {
+        setOnTouched(false);
         setIsSuccess(false);
         setIsFailed(false);
       }, 2000);
