@@ -43,14 +43,14 @@ export const TravelDreams = () => {
               <img className="object-fill" src={image} alt={`Image ${startIndex + index}`} />
               <h1 className="absolute bottom-5 left-0 right-0 text-center font-sans text-xs font-bold text-white">
                 {startIndex + index === 0 && 'Bromo, Jawa Timur'}
-                {startIndex + index === 1 && 'Raja Ampat, Papua'}
-                {startIndex + index === 2 && 'Nusa Penida, Bali'}
-                {startIndex + index === 3 && 'Candi Prambanan, Magelang'}
-                {startIndex + index === 4 && 'Pantai Pink, NTT'}
-                {startIndex + index === 5 && 'Bunaken, Sulawesi Utara'}
-                {startIndex + index === 6 && 'Rinjani, NTB'}
-                {startIndex + index === 7 && 'Kawah Ijen, Jawa Timur'}
-                {startIndex + index === 8 && 'Pulau Weh, Aceh'}
+                {startIndex + index === 1 && 'Bunaken, Sulawesi Utara'}
+                {startIndex + index === 2 && 'Candi Prambanan, Magelang'}
+                {startIndex + index === 3 && 'Kawah Ijen, Jawa Timur'}
+                {startIndex + index === 4 && 'Nusa Penida, Bali'}
+                {startIndex + index === 5 && 'Pantai Pink, NTT'}
+                {startIndex + index === 6 && 'Pulau Weh, Aceh'}
+                {startIndex + index === 7 && 'Raja Ampat, Papua'}
+                {startIndex + index === 8 && 'Rinjani, NTB'}
               </h1>
             </div>
           ))}
