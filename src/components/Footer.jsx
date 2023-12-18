@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from 'lucide-react';
 
 import footerlogo from '/logo-2.png';
-import { date } from 'yup';
 
 const data = {
   title: 'Destimate',
