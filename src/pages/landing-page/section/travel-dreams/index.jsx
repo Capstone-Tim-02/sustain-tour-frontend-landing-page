@@ -36,21 +36,21 @@ export const TravelDreams = () => {
 
   return (
     <section id="travel-dreams">
-      <div className="mx-auto flex w-full flex-col items-center justify-center gap-5 sm:gap-10 lg:mb-[10rem] lg:flex-row lg:mt-16">
+      <div className="mx-auto flex w-full flex-col items-center justify-center gap-5 sm:gap-10 lg:mb-[10rem] lg:mt-16 lg:flex-row">
         <div className="flex flex-wrap items-center justify-center gap-4 sm:flex-nowrap">
           {visibleImages.map((image, index) => (
             <div key={index} className="relative h-[338px] w-[200px]">
               <img className="object-fill" src={image} alt={`Image ${startIndex + index}`} />
               <h1 className="absolute bottom-5 left-0 right-0 text-center font-sans text-xs font-bold text-white">
                 {startIndex + index === 0 && 'Bromo, Jawa Timur'}
-                {startIndex + index === 1 && 'Raja Ampat, Papua'}
-                {startIndex + index === 2 && 'Nusa Penida, Bali'}
-                {startIndex + index === 3 && 'Candi Prambanan, Magelang'}
-                {startIndex + index === 4 && 'Pantai Pink, NTT'}
-                {startIndex + index === 5 && 'Bunaken, Sulawesi Utara'}
-                {startIndex + index === 6 && 'Rinjani, NTB'}
-                {startIndex + index === 7 && 'Kawah Ijen, Jawa Timur'}
-                {startIndex + index === 8 && 'Pulau Weh, Aceh'}
+                {startIndex + index === 1 && 'Bunaken, Sulawesi Utara'}
+                {startIndex + index === 2 && 'Candi Prambanan, Magelang'}
+                {startIndex + index === 3 && 'Kawah Ijen, Jawa Timur'}
+                {startIndex + index === 4 && 'Nusa Penida, Bali'}
+                {startIndex + index === 5 && 'Pantai Pink, NTT'}
+                {startIndex + index === 6 && 'Pulau Weh, Aceh'}
+                {startIndex + index === 7 && 'Raja Ampat, Papua'}
+                {startIndex + index === 8 && 'Rinjani, NTB'}
               </h1>
             </div>
           ))}
